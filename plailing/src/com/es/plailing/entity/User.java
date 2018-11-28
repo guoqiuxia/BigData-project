@@ -189,7 +189,7 @@ public class User {
 	public void setTeacherFollows(Set<User> teacherFollows) {
 		this.teacherFollows = teacherFollows;
 	}
-	@ManyToMany(mappedBy="teacFollows")
+	@ManyToMany(mappedBy="teacherFollows")
 	public Set<User> getStudentFollows() {
 		return studentFollows;
 	}

@@ -52,8 +52,8 @@
 						cellpadding="0" class="tab">
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>昵称:</b></td>
-							<td>&nbsp;&nbsp;&nbsp;afsdfds@163.com &nbsp;&nbsp;&nbsp;<a
-								href="#">[修改]</a></td>
+							<td>&nbsp;&nbsp;&nbsp;afsdfds@163.com &nbsp;&nbsp;&nbsp;
+							<a href="#">[修改]</a></td>
 						</tr>
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>邮
