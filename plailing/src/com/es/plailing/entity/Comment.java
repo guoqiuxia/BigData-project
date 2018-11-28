@@ -1,13 +1,17 @@
 package com.es.plailing.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="tbl_comment")
@@ -15,7 +19,11 @@ public class Comment {
 	private int commentId;
 	private String text;
 	private Date commentTime;
-	private int pid;
+
+	//子评论
+	private Set<Comment> comments=new HashSet<Comment>();
+	//父评论
+	private Comment comment;
 	//用户
 	private User user;
 	//课程目录
@@ -40,11 +48,20 @@ public class Comment {
 	public void setCommentTime(Date commentTime) {
 		this.commentTime = commentTime;
 	}
-	public int getPid() {
-		return pid;
+	@OneToMany(mappedBy="comment",targetEntity=Comment.class,cascade={CascadeType.ALL})
+	public Set<Comment> getComments() {
+		return comments;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+	@ManyToOne
+	@JoinColumn(name="pId")
+	public Comment getComment() {
+		return comment;
+	}
+	public void setComment(Comment comment) {
+		this.comment = comment;
 	}
 	@ManyToOne
 	@JoinColumn(name="userId")

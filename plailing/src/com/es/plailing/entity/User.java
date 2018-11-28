@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -42,9 +44,9 @@ public class User {
 	//评分
 	private Set<Grade>grades=new HashSet<Grade>();
 	//老师
-	private Set<Follow> teacherFollows=new HashSet<Follow>();
+	private Set<User> teacherFollows=new HashSet<User>();
 	//学生
-	private Set<Follow> studentFollows=new HashSet<Follow>();
+	private Set<User> studentFollows=new HashSet<User>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getUserId() {
@@ -179,18 +181,19 @@ public class User {
 	public void setGrades(Set<Grade> grades) {
 		this.grades = grades;
 	}
-	@OneToMany(mappedBy="teacherUsers",targetEntity=Follow.class,cascade={CascadeType.ALL})
-	public Set<Follow> getTeacherFollows() {
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="tbl_follow",joinColumns= {@JoinColumn(name="studentId")},inverseJoinColumns= {@JoinColumn(name="teacherId")})
+	public Set<User> getTeacherFollows() {
 		return teacherFollows;
 	}
-	public void setTeacherFollows(Set<Follow> teacherFollows) {
+	public void setTeacherFollows(Set<User> teacherFollows) {
 		this.teacherFollows = teacherFollows;
 	}
-	@OneToMany(mappedBy="studentUsers",targetEntity=Follow.class,cascade={CascadeType.ALL})
-	public Set<Follow> getStudentFollows() {
+	@ManyToMany(mappedBy="teacFollows")
+	public Set<User> getStudentFollows() {
 		return studentFollows;
 	}
-	public void setStudentFollows(Set<Follow> studentFollows) {
+	public void setStudentFollows(Set<User> studentFollows) {
 		this.studentFollows = studentFollows;
 	}
 
