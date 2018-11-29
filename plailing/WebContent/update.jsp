@@ -35,8 +35,9 @@
 	<div class="clear"></div>
 	<!--container-->
 	<div class="subbox">
+		<!-- 左侧部分 -->
 		<%@include file="left.jsp"%>
-		<!--右侧部分-->
+		<!-- 右侧部分 -->
 		<div class="right840">
 			<div class="title6">
 				<h1>
@@ -52,19 +53,16 @@
 						cellpadding="0" class="tab">
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>昵称:</b></td>
-							<td>&nbsp;&nbsp;&nbsp;afsdfds@163.com &nbsp;&nbsp;&nbsp;
-							<a href="#">[修改]</a></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="text" name="nickname" value="小1$}">&nbsp;&nbsp;&nbsp;</td>
 						</tr>
 						<tr>
-							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>邮
-									箱:</b></td>
-							<td>&nbsp;&nbsp;&nbsp;afsdfds@163.com &nbsp;&nbsp;&nbsp;<a
-								href="#">[修改]</a></td>
+							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>邮箱:</b></td>
+							<td>&nbsp;&nbsp;&nbsp;<input type="text" name="email" value="12345@qq.com $ }">&nbsp;&nbsp;&nbsp;</td>
 						</tr>
-						<tr>
+						<%-- <tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>原密码:</b></td>
 							<td>&nbsp;&nbsp;&nbsp;<input type="password" name="oldpassword" ></td>
-						</tr>
+						</tr>--%>
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>新密码:</b></td>
 							<td>&nbsp;&nbsp;&nbsp;<input type="password" name="newpassword" ></td>
@@ -79,31 +77,36 @@
 						</tr>
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>性别:</b></td>
-							<td>&nbsp;&nbsp;&nbsp; <input id="r1" type="radio" value="0"
-								name="gender" /> 男 <input id="r2" type="radio" value="1"
-								name="gender" /> 女
+							<td>&nbsp;&nbsp;&nbsp;
+								<input id="r1" type="radio" value="0" name="gender" /> 男 
+								<input id="r2" type="radio" value="1" name="gender" /> 女
 							</td>
 						</tr>
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>所在地:</b></td>
-							<td>&nbsp;&nbsp;&nbsp; <select class="input5">
+							<td>&nbsp;&nbsp;&nbsp; 
+								<select class="input5">
 									<option>选择省份</option>
-							</select> &nbsp; <select class="input5">
+								</select> &nbsp; 
+								<select class="input5">
 									<option>选择市</option>
-							</select> &nbsp; <select class="input5">
+								</select> &nbsp; 
+								<select class="input5">
 									<option>选择区/县</option>
-							</select></td>
-						</tr>
-						<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>出生日期:</b></td>
-						<td>&nbsp;&nbsp;&nbsp; <input type="date" />
-						</td>
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>手
-									机:</b></td>
-							<td>&nbsp;&nbsp;&nbsp; <input type="text" class="input1"
-								name="" /> &nbsp;&nbsp;&nbsp;<font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<font
-								class="f_black">请输入数字</font></td>
+							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>出生日期:</b></td>
+							<td>&nbsp;&nbsp;&nbsp; <input type="date" /></td>
+						</tr>
+						<tr>
+							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>手机:</b></td>
+							<td>&nbsp;&nbsp;&nbsp; 
+								<input type="text" class="input1" name="" /> &nbsp;&nbsp;&nbsp;
+								<font class="f_red">*</font>&nbsp;&nbsp;&nbsp;
+								<font class="f_black">请输入数字</font>
+							</td>
 						</tr>
 						<tr>
 							<td><font class="f_red">*</font>&nbsp;&nbsp;&nbsp;<b>身份证号:</b></td>

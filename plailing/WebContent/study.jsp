@@ -34,8 +34,9 @@
 	<div class="clear" style="height: 38px;"></div>
 	<!--container-->
 	<div class="subbox">
+		<!-- 左侧部分 -->
 		<%@include file="left.jsp"%>
-		<!--右侧部分-->
+		<!-- 右侧部分 -->
 		<div class="right840">
 			<div class="title6">
 				<h1>

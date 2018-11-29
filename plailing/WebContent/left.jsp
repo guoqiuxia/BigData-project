@@ -7,7 +7,7 @@
 					<img src="img/Linux&c.png" />
 				</div>
 				<div class="grname">
-					<a href="#">小e</a>
+					<a href="#">小n$}</a>
 				</div>
 			</div>
 			<br>
