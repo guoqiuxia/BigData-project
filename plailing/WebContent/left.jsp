@@ -11,7 +11,10 @@
 				</div>
 			</div>
 			<br>
+			<ul class="menu1">
+				<li><a href="update.jsp"><em>信息设置</em></a></li>
 
+			</ul>
 			<ul class="menu1">
 				<li><a href="study.jsp"><em>学习课程</em></a></li>
 			</ul>
@@ -31,8 +34,5 @@
 				<li><a href="collection.jsp"><em>我的收藏</em></a></li>
 
 			</ul>
-			<ul class="menu1">
-				<li><a href="update.jsp"><em>信息设置</em></a></li>
-
-			</ul>
+			
 		</div>
