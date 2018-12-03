@@ -249,9 +249,10 @@ function fileChange(target){
 
 						<tr>
 							<td></td>
-							<td colspan="2">&nbsp;&nbsp;&nbsp; <input type="submit"
-								value="保存信息" class="btn1" /> &nbsp;&nbsp;&nbsp; <input
-								type="reset" value="取消" class="btn4" /></td>
+							<td colspan="2">&nbsp;&nbsp;&nbsp; 
+								<input type="submit" value="保存信息" class="btn1" /> &nbsp;&nbsp;&nbsp; 
+								<input type="reset" value="取消" class="btn4" />
+							</td>
 						</tr>
 					</table>
 				</form>
