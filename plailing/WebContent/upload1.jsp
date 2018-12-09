@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
 </head>
 <body>
-	<%@include file="header1.jsp"%>
+	<%@include file="header.jsp"%>
 	<div class="clear"></div>
 	<!--container-->
 	<div class="subbox">
@@ -48,7 +48,7 @@
 					<img src="img/scimg1.jpg" />
 				</div>
 				<div class="scvideo">
-					<a href="upload2.jsp"><img src="img/scsp.jpg" /></a>
+					<a href="upload/find"><img src="img/scsp.jpg" /></a>
 				</div>
 				<div class="xieyi">
 					上传视频，即表示<a href="#">您已同意目课上传服务条款</a>。请勿上传色情、反动以及不宜传播视频内容。

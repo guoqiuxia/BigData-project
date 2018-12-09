@@ -31,7 +31,9 @@
 </head>
 <body>
 	<!--头部-->
-	<%@include file="header1.jsp"%>
+	<div id="header">
+		<%@include file="header.jsp"%>
+	</div>
 	<div class="clear"></div>
 	<!--container-->
 	<div class="subbox">
@@ -44,7 +46,7 @@
 					<a href="#" class="on">通知</a>
 				</h1>
 				<h1>
-					<a href="#">评论</a>
+					<a href="relate">评论</a>
 				</h1>
 			</div>
 			<div class="display">
@@ -61,7 +63,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="clear" style="height: 53px;"></div>
+	<div class="clear" style="height: 7px;"></div>
 
 	</div>
 	<%@include file="footer.jsp"%>

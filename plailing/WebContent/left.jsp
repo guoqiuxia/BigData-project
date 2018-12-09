@@ -4,19 +4,19 @@
 		<div class="left180">
 			<div class="grtx">
 				<div class="grimg">
-					<img src="img/Linux&c.png" />
+					<img src="${leftUser.photo}" style="margin-left:4px;margin-top:5px;"/>
 				</div>
 				<div class="grname">
-					<a href="#">小n$}</a>
+					<a href="#">${leftUser.nickName}</a>
 				</div>
 			</div>
 			<br>
 			<ul class="menu1">
-				<li><a href="update.jsp"><em>信息设置</em></a></li>
+				<li><a href="${ctx }/user/findInfo"><em>信息设置</em></a></li>
 
 			</ul>
 			<ul class="menu1">
-				<li><a href="study.jsp"><em>学习课程</em></a></li>
+				<li><a href="${ctx }/user/join"><em>学习课程</em></a></li>
 			</ul>
 			<ul class="menu1">
 				<li><a href="upload.jsp"><em>上传课程</em></a></li>
@@ -27,7 +27,7 @@
 
 			</ul>
 			<ul class="menu1">
-				<li><a href="account.jsp"><em>零钱明细</em></a></li>
+				<li><a href="${ctx }/user/balance"><em>零钱明细</em></a></li>
 
 			</ul>
 			<ul class="menu1">

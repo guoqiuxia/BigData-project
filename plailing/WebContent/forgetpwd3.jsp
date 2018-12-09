@@ -4,11 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Author" contect="http://www.webqin.net">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="o-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="csrf-token"
+	content="1483758872##fd2cac389b2b7c009a744bcaecaa41d71592cfe8">
 <title>忘记密码</title>
-<link rel="shortcut icon" href="images/favicon.ico" />
 <link type="text/css" href="css/css.css" rel="stylesheet" />
-<link rel="shortcut icon" href="favicon.ico">
+
+
 <link rel="stylesheet"
 	href="static/font-awesome//4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -24,61 +29,35 @@
 
 <body>
 	<%@include file="header.jsp"%>
+	<div class="clear"></div>
 	<div class="content">
 		<div class="web-width" style="margin-top: 68px;">
-			<div class="for-liucheng">
+			<div class="for-liucheng" style="margin-left:350px">
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
-				<div class="liulist"></div>
 				<div class="liutextbox">
 					<div class="liutext for-cur">
-						<em style="background: #11aa8c;">1</em><br />
-						<strong style="color: #11aa8c;">填写账户名</strong>
+						<em style="background: #11aa8c;">1</em><br /> <strong
+							style="color: #11aa8c;">验证身份</strong>
 					</div>
 					<div class="liutext for-cur">
-						<em style="background: #11aa8c;">2</em><br />
-						<strong style="color: #11aa8c;">验证身份</strong>
+						<em style="background: #11aa8c;">2</em><br /> <strong
+							style="color: #11aa8c;">设置新密码</strong>
 					</div>
 					<div class="liutext for-cur">
-						<em style="background: #11aa8c;">3</em><br />
-						<strong style="color: #11aa8c;">设置新密码</strong>
-					</div>
-					<div class="liutext">
-						<em>4</em><br />
-						<strong>完成</strong>
+						<em style="background: #11aa8c;">3</em><br /> <strong
+							style="color: #11aa8c;">完成</strong>
 					</div>
 				</div>
 			</div>
 			<!--for-liucheng/-->
-			<form action="forgetpwd4.jsp" method="get" class="forget-pwd">
-				<dl>
-					<dt>手机号：</dt>
-					<dd>
-						<input type="text" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<dl>
-					<dt>新密码：</dt>
-					<dd>
-						<input type="password" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<dl>
-					<dt>确认密码：</dt>
-					<dd>
-						<input type="password" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<div >
-					<input style="background: #11aa8c; color: white;margin-left:143px;" type="submit"
-						value="提交" class="input8"/>
-				</div>
-			</form>
-			<!--forget-pwd/-->
+			<div class="successs" style="margin-left:0px">
+				<h3 style="color: #11aa8c;">恭喜您，修改成功！</h3>
+				<br /><a href="index.jsp"><input
+					style="background: #11aa8c; color: white;margin-right:17px;"
+					type="submit" value="快速登录" class="input8" /></a>
+			</div>
 		</div>
 		<!--web-width/-->
 	</div>

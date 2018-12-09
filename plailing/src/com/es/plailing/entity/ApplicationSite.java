@@ -13,7 +13,7 @@ public class ApplicationSite {
 	private int siteId;
 	private String siteType;
 	private Date useTime;
-	private int useLang; 
+	private double useLang; 
 	private Date applicationTime;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,10 +35,10 @@ public class ApplicationSite {
 	public void setUseTime(Date useTime) {
 		this.useTime = useTime;
 	}
-	public int getUseLang() {
+	public double getUseLang() {
 		return useLang;
 	}
-	public void setUseLang(int useLang) {
+	public void setUseLang(double useLang) {
 		this.useLang = useLang;
 	}
 	public Date getApplicationTime() {

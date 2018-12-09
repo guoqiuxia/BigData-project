@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,8 +31,9 @@
 
 </head>
 <body>
-	<%@include file="header1.jsp"%>
-	<div class="clear"></div>
+	<div id="header">
+		<%@include file="header.jsp"%>
+	</div>
 	<!--container-->
 	<div class="subbox">
 		<%@include file="left.jsp"%>
@@ -47,46 +49,16 @@
 				<div class="videoinfo2">
 					<!-- <div class="left502"> -->
 					<div class="tab-pane active" id="labs">
+						<c:forEach items="${courseList}" var="cl">
 						<div class="lab-item ">
-							<div class="lab-item-title" title="Linux 系统简介">Java简介</div>
+							<div class="lab-item-title" title="Linux 系统简介">${cl.name}</div>
 							<div class="pull-right lab-item-ctrl">
 								<a href="applicationsite.jsp"><input type="submit" value="申请场地" class="input8"></a> 
 								<a href="#"><input type="submit" value="申请直播" class="input8"></a>
 								<a href="upload1.jsp"><input type="submit" value="继续上传" class="input8"></a>
 							</div>
 						</div>
-						<div class="lab-item ">
-							<div class="lab-item-title" title="Linux 系统简介">Java简介</div>
-							<div class="pull-right lab-item-ctrl">
-								<a href="applicationsite.jsp"><input type="submit" value="申请场地" class="input8"></a> 
-								<a href="#"><input type="submit" value="申请直播" class="input8"></a>
-								<a href="upload1.jsp"><input type="submit" value="继续上传" class="input8"></a>
-							</div>
-						</div>
-						<div class="lab-item ">
-							<div class="lab-item-title" title="Linux 系统简介">Java简介</div>
-							<div class="pull-right lab-item-ctrl">
-								<a href="applicationsite.jsp"><input type="submit" value="申请场地" class="input8"></a> 
-								<a href="#"><input type="submit" value="申请直播" class="input8"></a>
-								<a href="upload1.jsp"><input type="submit" value="继续上传" class="input8"></a>
-							</div>
-						</div>
-						<div class="lab-item ">
-							<div class="lab-item-title" title="Linux 系统简介">Java简介</div>
-							<div class="pull-right lab-item-ctrl">
-								<a href="applicationsite.jsp"><input type="submit" value="申请场地" class="input8"></a> 
-								<a href="#"><input type="submit" value="申请直播" class="input8"></a>
-								<a href="upload1.jsp"><input type="submit" value="继续上传" class="input8"></a>
-							</div>
-						</div>
-						<div class="lab-item ">
-							<div class="lab-item-title" title="Linux 系统简介">大数据学习</div>
-							<div class="pull-right lab-item-ctrl">
-								<a href="applicationsite.jsp"><input type="submit" value="申请场地" class="input8"></a> 
-								<a href="#"><input type="submit" value="申请直播" class="input8"></a>
-								<a href="upload1.jsp"><input type="submit" value="继续上传" class="input8"></a>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 					<div>
 						<a href="upload1.jsp">
@@ -99,7 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="clear" style="height: 4px;"></div>
+	<div class="clear" style="height: 7px;"></div>
 	<%@include file="footer.jsp"%>
 </body>
 </html>

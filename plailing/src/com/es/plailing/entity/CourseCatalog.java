@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 @Entity
 @Table(name="tbl_coursecatalog")
 public class CourseCatalog {
@@ -49,6 +52,7 @@ public class CourseCatalog {
 	}
 	@ManyToOne
 	@JoinColumn(name="pId")
+	@NotFound(action=NotFoundAction.IGNORE)
 	public CourseCatalog getCourseCatalog() {
 		return courseCatalog;
 	}

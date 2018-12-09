@@ -20,95 +20,90 @@
 	href="app/css/libs/videojs/5.11.7/video-js.min.css">
 <link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
 <link href="css/whir_grzx.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.8.3-min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
-	//导航定位
-	$(function() {
-		// $(".nav li:eq(2) a:first").addClass("navCur")
-		//验证手机 邮箱 
-		$(".selyz").change(function() {
-			var selval = $(this).find("option:selected").val();
-			if (selval == "0") {
-				$(".sel-yzsj").show()
-				$(".sel-yzyx").hide()
-			} else if (selval == "1") {
-				$(".sel-yzsj").hide()
-				$(".sel-yzyx").show()
+	function checkTwopwd(){
+		var pwd = $('#pwd').val();
+		var rpwd = $('#rpwd').val();
+		$.ajax({
+			url:'checkPwd',
+			data:{
+				'pwd':pwd,
+				'rpwd':rpwd
+			},
+			type:'post',
+			asyn:false,
+			success:function(result){
+				if(result!="pass"){
+					document.getElementById("submitSpan").innerHTML = "两次密码不一致";
+				}else{
+					document.getElementById("submitSpan").innerHTML = "";
+				}
 			}
 		})
-	})
+	}
+	function checkTwopwd2(){
+		var pwd = $('#pwd').val();
+		$.ajax({
+			url:'checkPwd2',
+			data:{
+				'pwd':pwd,
+			},
+			type:'post',
+			asyn:false,
+			success:function(result){
+				if(result!="pass"){
+					document.getElementById("submitSpan1").innerHTML = "填写6-19位数字、字母、下划线";
+					document.getElementById("submitSpan1").style.color='red';
+				}else{
+					document.getElementById("submitSpan1").innerHTML = "";
+				}
+			}
+		})
+	}
 </script>
 </head>
-
 <body>
 	<%@include file="header.jsp"%>
 	<div class="content">
 		<div class="web-width" style="margin-top: 68px;">
-			<div class="for-liucheng">
+			<div class="for-liucheng" style="margin-left:350px">
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
-				<div class="liulist"></div>
 				<div class="liulist"></div>
 				<div class="liutextbox">
 					<div class="liutext for-cur">
 						<em style="background: #11aa8c;">1</em><br />
-						<strong style="color: #11aa8c;">填写账户名</strong>
+						<strong style="color: #11aa8c;">验证身份</strong>
 					</div>
 					<div class="liutext for-cur">
 						<em style="background: #11aa8c;">2</em><br />
-						<strong style="color: #11aa8c;">验证身份</strong>
+						<strong style="color: #11aa8c;">设置新密码</strong>
 					</div>
-					<div class="liutext">
-						<em>3</em><br />
-						<strong>设置新密码</strong>
+					<div class="liutext for-cur">
+						<em style="background: #ccc;">3</em><br />
+						<strong style="color: black;">完成</strong>
 					</div>
-					<div class="liutext">
-						<em>4</em><br />
-						<strong>完成</strong>
-					</div>
-				</div>
 			</div>
 			<!--for-liucheng/-->
-			<form action="forgetpwd3.jsp" method="get" class="forget-pwd">
+			<form action="checkPwd1" class="forget-pwd" style="margin-left:45px">
 				<dl>
-					<dt>验证方式：</dt>
+					<dt>新密码：</dt>
 					<dd>
-						<select class="selyz">
-							<option value="0">已验证手机</option>
-							<option value="1">已验证邮箱</option>
-						</select>
+						<input type="password" id="pwd" name="pwd"  onblur="checkTwopwd2()"/>
+						<span id="submitSpan1" style="font-size:12px;color:black">填写6-19位数字、字母、下划线</span>
 					</dd>
 					<div class="clears"></div>
 				</dl>
 				<dl>
-					<dt>用户名：</dt>
+					<dt>确认密码：</dt>
 					<dd>
-						<input type="text" />
+						<input type="password" id="rpwd" name="rpwd" onblur="checkTwopwd()"/>
+						<span id="submitSpan" style="font-size:12px;color:red"></span>
 					</dd>
 					<div class="clears"></div>
 				</dl>
-				<dl class="sel-yzsj">
-					<dt>已验证手机：</dt>
-					<dd>
-						<input type="text" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<dl class="sel-yzyx">
-					<dt>已验证邮箱：</dt>
-					<dd>
-						<input type="text" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<dl>
-					<dt>手机校验码：</dt>
-					<dd>
-						<input type="text" />
-						<button>获取短信验证码</button>
-					</dd>
-					<div class="clears"></div>
-				</dl>
+				<input type="hidden" value="<%=request.getParameter("userEmail")%>" id="userEmail" name="userEmail">
 				<div >
 					<input style="background: #11aa8c; color: white;margin-left:143px;" type="submit"
 						value="提交" class="input8"/>

@@ -17,8 +17,9 @@ public class UserBalance {
 	private double money;
 	private double totleMoney;
 	private int balanceState;
-	//ÓÃ»§
+	//ï¿½Ã»ï¿½
 	private User user;
+	private Course course;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getUserBalanceId() {
@@ -58,6 +59,14 @@ public class UserBalance {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	@ManyToOne
+	@JoinColumn(name="courseId")
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 }

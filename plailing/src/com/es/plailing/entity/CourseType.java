@@ -12,23 +12,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 @Entity
 @Table(name="tbl_coursetype")
 public class CourseType {
-	private int typeId;
+	private Integer typeId;
 	private String typeName;
-	//¿Î³ÌÀàÐÍ
+	//ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Set<Course> courses=new HashSet<Course>();
-	//×ÓÀàÐÍ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Set<CourseType> courseTypes=new HashSet<CourseType>();
-	//¸¸ÀàÐÍ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private CourseType courseType;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getTypeId() {
+	public Integer getTypeId() {
 		return typeId;
 	}
-	public void setTypeId(int typeId) {
+	public void setTypeId(Integer typeId) {
 		this.typeId = typeId;
 	}
 
@@ -47,13 +50,14 @@ public class CourseType {
 	}
 	@ManyToOne
 	@JoinColumn(name="pTypeId")
+	@NotFound(action=NotFoundAction.IGNORE)
 	public CourseType getCourseType() {
 		return courseType;
 	}
 	public void setCourseType(CourseType courseType) {
 		this.courseType = courseType;
 	}
-	@OneToMany(targetEntity=Course.class,cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="courseType",targetEntity=Course.class,cascade={CascadeType.ALL})
 	public Set<Course> getCourses() {
 		return courses;
 	}

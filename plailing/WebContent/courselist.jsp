@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +13,7 @@
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta name="csrf-token"
 	content="1483780974##87f89328c5616669f00302a263fe9061bb852818">
-	
 <title>courselist</title>
-
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet"
 	href="static/font-awesome//4.7.0/css/font-awesome.min.css">
@@ -26,52 +25,34 @@
 <link rel="stylesheet"
 	href="app/css/libs/videojs/5.11.7/video-js.min.css">
 <link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
-
+<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-	
 	<%@include file="header.jsp"%>
-	
 	<div class="container layout layout-margin-top">
-
-
 		<div class="row">
 			<div class="col-md-9 layout-body">
-
 				<div class="content">
 					<div class="row course-cates">
 						<div class="col-md-1 course-cates-title">类别：</div>
-						<div class="col-md-11 course-cates-content">
-							<a class="active" href="/courses/?course_type=all&amp;tag=all">全部</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=free">摄影技术</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">创意设计</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">声乐器乐</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">IT互联网</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">运动健身</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">语言学习</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">职场技能</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">生活意趣</a>
-							<a class="" href="/courses/?course_type=all&amp;tag=all&amp;fee=limited">公开课</a>
+						<div class="col-md-11 course-cates-content" id="fdiv">
+							<a class="active" href="#">全部</a>
+							<c:forEach items="${parentType}" var="pt">
+							<a href = "courseListF?fTypeId=${pt.typeId}">${pt.typeName}</a>
+							</c:forEach>
 						</div>
 					</div>
+					<c:if test="${mTag=='全部'}">
 					<div class="row course-cates">
 						<div class="col-md-1 course-cates-title">标签：</div>
-						<div class="col-md-11 course-cates-content">
-							<a class="active" href="/courses/?course_type=all&amp;fee=all">全部</a>
-
-							<a class=""
-								href="/courses/?course_type=all&amp;tag=Python&amp;fee=all">Java</a>
-
-							<a class=""
-								href="/courses/?course_type=all&amp;tag=C%2FC%2B%2B&amp;fee=all">C/C++</a>
-
-							<a class=""
-								href="/courses/?course_type=all&amp;tag=Linux&amp;fee=all">Linux</a>
-
-							<a class=""
-								href="/courses/?course_type=all&amp;tag=Web&amp;fee=all">Web</a>
+						<div class="col-md-11 course-cates-content" id="typediv">
+							<a class="active">${mTag}</a>
+							<c:forEach items="${fCourseType.courseTypes}" var="ct">
+							<a href="courseListT?cTypeId=${ct.typeId}">${ct.typeName}</a>
+							</c:forEach>
 						</div>
 					</div>
+					</c:if>
 				</div>
 				<div class="content position-relative">
 					<ul class="nav nav-tabs" role="tablist">
@@ -81,650 +62,127 @@
 					<div class="clearfix"></div>
 					<div class="search-result"></div>
 					<div class="row">
-
-
-
-
-					<!-- 以下第一个大的div已改 -->
+						<c:forEach items="${Coursespage}" var="pc">
 						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="coursedetail.jsp">
+							<a class="course-box" href="courseDetail?courseId=${pc.key.courseId}">
 								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/63/follow"
-										data-unfollow-url="/courses/63/unfollow" style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="新手指南之玩转实验楼"
-										src="https://dn-simplecloud.shiyanlou.com/ncn63.jpg">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="新手指南之玩转实验楼">新手指南之玩转实验楼</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 57973
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-						<!-- 以以上第一个大的div已改 ，以下用foreach得到-->
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/1/follow"
-										data-unfollow-url="/courses/1/unfollow" style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Linux 基础入门（新版）"
-										src="https://dn-simplecloud.shiyanlou.com/ncn1.jpg">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Linux 基础入门（新版）">Linux
-										基础入门（新版）</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 85219
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/719/follow"
-										data-unfollow-url="/courses/719/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Kali 渗透测试 - 后门技术实战（10个实验）"
-										src="https://dn-simplecloud.shiyanlou.com/1480389303324.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Kali 渗透测试 - 后门技术实战（10个实验）">Kali
-										渗透测试 - 后门技术实战（10个实验）</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 101
-
-									</span> <span class="course-bootcamp pull-right">训练营</span>
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/717/follow"
-										data-unfollow-url="/courses/717/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Kali 渗透测试 - Web 应用攻击实战"
-										src="https://dn-simplecloud.shiyanlou.com/1480389165511.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Kali 渗透测试 - Web 应用攻击实战">Kali
-										渗透测试 - Web 应用攻击实战</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 121
-
-									</span> <span class="course-bootcamp pull-right">训练营</span>
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/721/follow"
-										data-unfollow-url="/courses/721/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="使用OpenCV进行图片平滑处理打造模糊效果"
-										src="https://dn-simplecloud.shiyanlou.com/1482113947345.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="使用OpenCV进行图片平滑处理打造模糊效果">使用OpenCV进行图片平滑处理打造模糊效果</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 60
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/729/follow"
-										data-unfollow-url="/courses/729/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="使用 Python 解数学方程"
-										src="https://dn-simplecloud.shiyanlou.com/1482807365470.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="使用 Python 解数学方程">使用
-										Python 解数学方程</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 69
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/713/follow"
-										data-unfollow-url="/courses/713/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="跟我一起来玩转Makefile"
-										src="https://dn-simplecloud.shiyanlou.com/1482215587606.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="跟我一起来玩转Makefile">跟我一起来玩转Makefile</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 298
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/698/follow"
-										data-unfollow-url="/courses/698/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Kali 渗透测试 - 服务器攻击实战（20个实验）"
-										src="https://dn-simplecloud.shiyanlou.com/1480386391850.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Kali 渗透测试 - 服务器攻击实战（20个实验）">Kali
-										渗透测试 - 服务器攻击实战（20个实验）</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 171
-
-									</span> <span class="course-bootcamp pull-right">训练营</span>
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/702/follow"
-										data-unfollow-url="/courses/702/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="手把手教你实现 Google 拓展插件"
-										src="https://dn-simplecloud.shiyanlou.com/1482113981000.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="手把手教你实现 Google 拓展插件">手把手教你实现
-										Google 拓展插件</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 392
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/726/follow"
-										data-unfollow-url="/courses/726/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="DVWA之暴力破解攻击"
-										src="https://dn-simplecloud.shiyanlou.com/1482113522578.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="DVWA之暴力破解攻击">DVWA之暴力破解攻击</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 349
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/725/follow"
-										data-unfollow-url="/courses/725/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Python3实现简单的FTP认证服务器"
-										src="https://dn-simplecloud.shiyanlou.com/1482113485097.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Python3实现简单的FTP认证服务器">Python3实现简单的FTP认证服务器</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 598
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/724/follow"
-										data-unfollow-url="/courses/724/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="SQLAlchemy 基础教程"
-										src="https://dn-simplecloud.shiyanlou.com/1481689616072.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="SQLAlchemy 基础教程">SQLAlchemy
-										基础教程</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 348
-
-									</span>
-
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/716/follow"
-										data-unfollow-url="/courses/716/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="使用OpenCV&amp;&amp;C++进行模板匹配"
-										src="https://dn-simplecloud.shiyanlou.com/1481511769551.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="使用OpenCV&amp;&amp;C++进行模板匹配">使用OpenCV&amp;&amp;C++进行模板匹配</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 347
-
-									</span> <span class="course-money pull-right">会员</span>
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/715/follow"
-										data-unfollow-url="/courses/715/unfollow"
-										style="display: none"></i>
-
-								</div>
-								<div class="course-img">
-
-									<img alt="Metasploit实现木马生成、捆绑及免杀"
-										src="https://dn-simplecloud.shiyanlou.com/1481512189119.png">
-
-								</div>
-
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Metasploit实现木马生成、捆绑及免杀">Metasploit实现木马生成、捆绑及免杀</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 256
-
-									</span> <span class="course-money pull-right">会员</span>
-
-
-								</div>
-							</a>
-						</div>
-
-
-
-
-
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-
-
-
 									<i class="fa fa-star-o course-follow pull-right"
 										data-follow-url="/courses/708/follow"
 										data-unfollow-url="/courses/708/unfollow"
 										style="display: none"></i>
-
 								</div>
 								<div class="course-img">
-
 									<img alt="Python 3 实现 Markdown 解析器"
-										src="https://dn-simplecloud.shiyanlou.com/1480644410422.png">
-
+										src="${pc.key.photo}">
 								</div>
-
 								<div class="course-body">
 									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Python 3 实现 Markdown 解析器">Python
-										3 实现 Markdown 解析器</span>
+										data-placement="bottom" title="Python 3 实现 Markdown 解析器">${pc.key.name}
+									</span>
 								</div>
 								<div class="course-footer">
 									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 745
-
+										class="fa fa-users"></i> ${pc.value}
 									</span> <span class="course-money pull-right">会员</span>
-
-
 								</div>
 							</a>
 						</div>
-
-
-
-
+						</c:forEach>
 					</div>
-
-
+					<c:if test="${tag=='ac'}">
 					<nav class="pagination-container">
 						<ul class="pagination">
-
-							<li class="disabled"><a href="#" aria-label="Previous">
+							<li>
+								<span>
+								共${page.totalPageNum}页
+								</span>
+							</li>
+							<li class="">
+								<a href="courseListAll?pageNum=1" aria-label="Previous">
+									<span aria-hidden="true">首页</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="courseListAll?pageNum=${page.prePageNum}" aria-label="Previous">
 									<span aria-hidden="true">上一页</span>
-							</a></li>
-
-
-
-							<li class="active"><a
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=1">1</a>
+								</a>
 							</li>
-
-
-
-							<li class=""><a
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=2">2</a>
-							</li>
-
-
-
-							<li class=""><a
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=3">3</a>
-							</li>
-
-
-
-
-							<li><a href='#'>...</a></li>
-
-
-
-							<li class=""><a
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=24">24</a>
-							</li>
-
-
-
-							<li class=""><a
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=25">25</a>
-							</li>
-
-
-
-							<li class=""><a aria-label="Next"
-								href="/courses/?course_type=all&amp;tag=all&amp;fee=all&amp;page=2">
+							<li class="">
+								<a aria-label="Next" href="courseListAll?pageNum=${page.nextPageNum}">
 									<span aria-hidden="true">下一页</span>
-							</a></li>
-
+								</a>
+							</li>
+							<li class="">
+								<a aria-label="Next" href="courseListAll?pageNum=${page.totalPageNum}">
+									<span aria-hidden="true">末页</span>
+								</a>
+							</li>
 						</ul>
 					</nav>
-
-
+					</c:if>
+					<c:if test="${tag=='ctc'}">
+					<nav class="pagination-container">
+						<ul class="pagination">
+							<li>
+								<span>
+								共${page.totalPageNum}页
+								</span>
+							</li>
+							<li class="">
+								<a href="courseListT?pageNum=1&cTypeId=${cTypeId}" aria-label="Previous">
+									<span aria-hidden="true">首页</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="courseListT?pageNum=${page.prePageNum}&cTypeId=${cTypeId}" aria-label="Previous">
+									<span aria-hidden="true">上一页</span>
+								</a>
+							</li>
+							<li class="">
+								<a aria-label="Next" href="courseListT?pageNum=${page.nextPageNum}&cTypeId=${cTypeId}">
+									<span aria-hidden="true">下一页</span>
+								</a>
+							</li>
+							<li class="">
+								<a aria-label="Next" href="courseListT?pageNum=${page.totalPageNum}&cTypeId=${cTypeId}">
+									<span aria-hidden="true">末页</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					</c:if>
+					<c:if test="${tag=='ftc'}">
+					<nav class="pagination-container">
+						<ul class="pagination">
+							<li>
+								<span>
+								共${page.totalPageNum}页
+								</span>
+							</li>
+							<li class="">
+								<a href="courseListF?pageNum=1&fTypeId=${fTypeId}" aria-label="Previous">
+									<span aria-hidden="true">首页</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="courseListF?pageNum=${page.prePageNum}&fTypeId=${fTypeId}" aria-label="Previous">
+									<span aria-hidden="true">上一页</span>
+								</a>
+							</li>
+							<li class="">
+								<a aria-label="Next" href="courseListF?pageNum=${page.nextPageNum}&fTypeId=${fTypeId}">
+									<span aria-hidden="true">下一页</span>
+								</a>
+							</li>
+							<li class="">
+								<a aria-label="Next" href="courseListF?pageNum=${page.totalPageNum}&fTypeId=${fTypeId}">
+									<span aria-hidden="true">末页</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					</c:if>
 				</div>
-
 			</div>
 			<div class="col-md-3 layout-side">
 				<div class="sidebox">
@@ -732,16 +190,11 @@
 						<h4 class="sidebox-title">最热课程</h4>
 					</div>
 					<div class="sidebox-body course-content side-list-body">
-						<a href="/paths/python"><img style="width: 25px; height: 25px"
-							src="img/1471513769430.png"> Python 研发工程师</a> <a
-							href="/paths/bigdata"><img style="width: 25px; height: 25px"
-							src="img/1471513926288.png"> 大数据工程师</a> <a href="/paths/cpp"><img
-							style="width: 25px; height: 25px" src="img/1471513793360.png">
-							C++ 研发工程师</a> <a href="/paths/security"><img
-							style="width: 25px; height: 25px" src="img/1471513867033.png">
-							信息安全工程师</a> <a href="/paths/linuxsys"><img
-							style="width: 25px; height: 25px" src="img/1471514004752.png">
-							Linux 运维工程师</a>
+						<c:forEach items="${listHotCourse}" var="lh">
+						<a href="/paths/python">
+							<img style="width: 25px; height: 25px" src="${lh.photo}">${lh.name}
+						</a>
+						</c:forEach>
 					</div>
 
 				</div>

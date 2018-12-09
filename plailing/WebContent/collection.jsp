@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,9 @@
 </head>
 <body>
 	<!--头部-->
-	<%@include file="header1.jsp"%>
+	<div id="header">
+		<%@include file="header.jsp"%>
+	</div>
 	<div class="clear"></div>
 	<!--container-->
 	<div class="subbox">
@@ -41,97 +45,55 @@
 		<div class="right840">
 			<div class="title6">
 				<h1>
-					<a href="application.html" class="on">收藏课程</a>
+					<a href="collection" class="on">收藏课程</a>
 				</h1>
 			</div>
 
 			<div class="display">
 				<div class="videoinfo1">
 					<div class="left5020">
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/1/follow"
-										data-unfollow-url="/courses/1/unfollow" style="display: none"></i>
-								</div>
-								<div class="course-img">
-									<img alt="Linux 基础入门（新版）"
-										src="https://dn-simplecloud.shiyanlou.com/ncn1.jpg">
-								</div>
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="Linux 基础入门（新版）">Linux
-										基础入门（新版）</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 85219
-									</span>
-								</div>
-							</a>
-						</div>
-						
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/713/follow"
-										data-unfollow-url="/courses/713/unfollow"
-										style="display: none"></i>
-								</div>
-								<div class="course-img">
-									<img alt="跟我一起来玩转Makefile"
-										src="https://dn-simplecloud.shiyanlou.com/1482215587606.png">
-								</div>
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="跟我一起来玩转Makefile">跟我一起来玩转Makefile</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 298
-									</span>
-								</div>
-							</a>
-						</div>
-						
-						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.html">
-								<div class="sign-box">
-									<i class="fa fa-star-o course-follow pull-right"
-										data-follow-url="/courses/726/follow"
-										data-unfollow-url="/courses/726/unfollow"
-										style="display: none"></i>
-								</div>
-								<div class="course-img">
-									<img alt="DVWA之暴力破解攻击"
-										src="https://dn-simplecloud.shiyanlou.com/1482113522578.png">
-								</div>
-								<div class="course-body">
-									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="DVWA之暴力破解攻击">DVWA之暴力破解攻击</span>
-								</div>
-								<div class="course-footer">
-									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 349
-									</span>
-								</div>
-							</a>
-						</div>
-						
-						
+						<c:forEach var="collection" items="${mpc}">
+							<div class="col-md-4 col-sm-6  course">
+								<a class="course-box" href="show.html">
+									<div class="sign-box">
+										<i class="fa fa-star-o course-follow pull-right"
+											data-follow-url="/courses/1/follow"
+											data-unfollow-url="/courses/1/unfollow" style="display: none"></i>
+									</div>
+									<div class="course-img">
+										<img alt="${collection.key.name}" src="${collection.key.photo }">
+									</div>
+									<div class="course-body">
+										<span class="course-title" data-toggle="tooltip"
+											data-placement="bottom" title="${collection.key.name}">${collection.key.name}
+											</span>
+									</div>
+									<div class="course-footer">
+										<span class="course-per-num pull-left"> <i
+											class="fa fa-users"></i>${collection.value }
+										</span>
+									</div>
+								</a>
+							</div>
+						</c:forEach>
 					</div>
+				</div>
+				<div style="position: relative;padding-top: 300px;text-align: center">
+					<span>共${pageCourse.totalPageNum}页</span>&nbsp;&nbsp;&nbsp;
+					<a href="collection?pageNum=1">首页</a> &nbsp;&nbsp;&nbsp;<a
+						href="collection?pageNum=${pageCourse.prePageNum }">上一页</a>&nbsp;&nbsp;&nbsp; <a
+						href="collection?pageNum=${pageCourse.nextPageNum }">下一页</a> &nbsp;&nbsp;&nbsp;<a
+						href="collection?pageNum=${pageCourse. totalPageNum}">末页</a>
 				</div>
 			</div>
 		</div>
-		<div class="clear" style="height: 38px;"></div>
-		
+		<div class="clear"></div>
+
 	</div>
-	
-		<%@include file="footer.jsp"%>
-	
-	
-	
+
+	<%@include file="footer.jsp"%>
+
+
+
 </body>
 </html>

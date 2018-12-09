@@ -914,7 +914,8 @@ form .help-block {
 }
 
 .btn {
-	border-radius: 0
+	border-radius: 0;
+	border-radius:4px;
 }
 
 .btn-join-path {
@@ -3373,7 +3374,7 @@ form .help-block {
 .answer-detail {
 	position: relative;
 	margin-left: 55px;
-	padding-bottom: 5px
+	padding-bottom: 20px;
 }
 
 .answer-detail hr {

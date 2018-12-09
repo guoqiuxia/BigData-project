@@ -15,20 +15,22 @@
 		</div>
 		<div class="collapse navbar-collapse" id="header-navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class=""><a href="courselist.jsp">课程</a></li>
-				<li class=""><a href="update.jsp">个人中心</a></li>
+				<li class=""><a href="courseListAll">课程</a></li>
+				<li class=""><a href="left">个人中心</a></li>
 				<li class=""><a href="guide.jsp">新手指南</a></li>
 				<li class=""><a href="aboutus.jsp">关于我们</a></li>
 
 			</ul>
 
 
-			<div class="navbar-right btns">
+			<div class="navbar-right btns" id="loginhidden">
 				<a class="btn btn-default navbar-btn sign-in" data-sign="signin"
 					href="#sign-modal" data-toggle="modal">登录</a> <a
 					class="btn btn-default navbar-btn sign-up" data-sign="signup"
-					href="#sign-modal" data-toggle="modal">注册</a>
+					href="#sign-modal" data-toggle="modal">注册</a>					
 			</div>
+			<div class="navbar-right btns" id="loginshow" style="display:none;float:right;"><img src="${user.photo}" style="width:35px;height:35px"></div>
+			
 
 		</div>
 	</div>

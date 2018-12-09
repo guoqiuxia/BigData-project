@@ -29,7 +29,7 @@ a {text-decoration:none;color:#666;}
 a:hover {color:#2f9def; text-decoration:none;}
 
 /***header***/
-#header{ width:100%; height:70px; display:block; min-width:1190px; }
+#header{ width:100%; height:70px; }
 
 /**font***/
 .f_red{ color:#ea0023;}
@@ -41,7 +41,7 @@ a:hover {color:#2f9def; text-decoration:none;}
 
 /***form***/
 .input{ width:435px; height:50px; border:2px solid #b7b7b7; border-right:0 none; background:url(../images/so.jpg) left center no-repeat;  padding-left:33px; line-height:50px; font-family:"微软雅黑"; font-size:14px; color:#555555; float:left;}
-.btn{ width:97px; height:54px; float:left;}
+
 
 /***footer***/
 #footer{ width:100%; height:337px; background:#e6e6e6; margin-top:20px; padding-top:20px;}

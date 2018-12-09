@@ -15,8 +15,8 @@
 				<a href="paths/index.html" target="_blank"
 					class="col-md-2  ">法律声明</a> <br> 
 				<div class="copyright" style="width: 800px;"><span>Copyright
-					@3013-3016 E享课堂在线</span> <span class="ver-line"> | </span> 
-					<span>冀ICP备13019763号</span></div>
+					@3013-3016 实验楼在线教育</span> <span class="ver-line"> | </span> 
+					<span>蜀ICP备13019763号</span></div>
 			</div>
 			<div class="col-md-4 clearfix footer-col footer-d">
 				<div class="col-xs-3 ">

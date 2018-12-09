@@ -20,57 +20,107 @@
 	href="app/css/libs/videojs/5.11.7/video-js.min.css">
 <link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
 <link href="css/whir_grzx.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	//导航定位
+	$(function() {
+		// $(".nav li:eq(2) a:first").addClass("navCur")
+		//验证手机 邮箱 
+		$(".selyz").change(function() {
+			var selval = $(this).find("option:selected").val();
+			if (selval == "0") {
+				$(".sel-yzyx").hide()
+			} else if (selval == "1") {
+				$(".sel-yzyx").show()
+			}
+		})
+	})
+	function sendEmailSucess(){
+		var email = $('#personemail').val();
+		$.ajax({
+			url:'forgetPwd',
+			data:{
+				'email':email
+			},
+			type:'post',
+			asyn:false,
+			success:function(result){
+				if(result=="ok"){
+					alert("发送成功请到邮箱验证");
+				}
+				if(result=="fail1"){
+					document.getElementById("emailSpan").innerHTML = "请填写邮箱";
+				}
+				if(result=="fail2"){
+					document.getElementById("emailSpan").innerHTML = "邮箱未注册";
+				}
+				if(result=="fail"){
+					alert("发送不成功请重新发送");
+				}
+			}
+		})
+	}
+	function checkEmail(){
+		var email = $('#personemail').val();
+		$.ajax({
+			url:'checkEmail',
+			data:{
+				'email':email
+			},
+			type:'post',
+			asyn:false,
+			success:function(result){
+				if(result=="fail"){
+					document.getElementById("emailSpan").innerHTML = "邮箱未注册";
+				}
+				if(result=="fail1"){
+					document.getElementById("emailSpan").innerHTML = "请填写邮箱";
+				}
+				if(result=="ok"){
+					document.getElementById("emailSpan").innerHTML = "";
+				}
+			}
+		})
+	}
+</script>
 </head>
+
 <body>
 	<%@include file="header.jsp"%>
 	<div class="content">
 		<div class="web-width" style="margin-top: 68px;">
-			<div class="for-liucheng">
+			<div class="for-liucheng" style="margin-left:350px">
 				<div class="liulist for-cur" style="background: #11aa8c;"></div>
-				<div class="liulist"></div>
 				<div class="liulist"></div>
 				<div class="liulist"></div>
 				<div class="liutextbox">
 					<div class="liutext for-cur">
 						<em style="background: #11aa8c;">1</em><br />
-						<strong style="color: #11aa8c;">填写账户名</strong>
+						<strong style="color: #11aa8c;">验证身份</strong>
 					</div>
-					<div class="liutext">
-						<em>2</em><br />
-						<strong>验证身份</strong>
+					<div class="liutext for-cur">
+						<em style="background: #ccc;">2</em><br />
+						<strong style="color: black;">设置新密码</strong>
 					</div>
 					<div class="liutext">
 						<em>3</em><br />
-						<strong>设置新密码</strong>
-					</div>
-					<div class="liutext">
-						<em>4</em><br />
 						<strong>完成</strong>
 					</div>
 				</div>
 			</div>
 			<!--for-liucheng/-->
-			<form action="forgetpwd2.jsp" method="get" class="forget-pwd">
-				<dl>
-					<dt>账户名：</dt>
+			<form class="forget-pwd" style="margin-left:400px">
+				<dl class="sel-yzyx">
+					<dt>邮箱：</dt>
 					<dd>
-						<input type="text" />
-					</dd>
-					<div class="clears"></div>
-				</dl>
-				<dl>
-					<dt>验证码：</dt>
-					<dd>
-						<input type="text" />
-						<div class="yanzma">
-							<img src="img/yzm.gif" /> <a href="javascript:;">换一换</a>
-						</div>
+						<input type="text" id="personemail" onblur="checkEmail()"/>
+						<span id="emailSpan" style="font-size:12px;color:red"></span>
 					</dd>
 					<div class="clears"></div>
 				</dl>
 				<div >
-					<input style="background: #11aa8c; color: white;margin-left:143px;" type="submit"
-						value="提交" class="input8"/>
+					<input style="background: #11aa8c; color: white;margin-left:143px;" type="button"
+						value="发送" class="input8" onclick="sendEmailSucess()"/>
 				</div>
 			</form>
 			<!--forget-pwd/-->

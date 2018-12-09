@@ -12,6 +12,9 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.springframework.stereotype.Repository;
+
+import com.es.plailing.entity.Page;
 
 /**
  * @desc 用于Spring整合Hibernate之后，数据持久层代码的封装。提供了基本的数据增删改查，以及基于HQL的查询、分页查询，基于SQL的查询、分页查询等。
@@ -20,12 +23,13 @@ import org.hibernate.criterion.CriteriaSpecification;
  * @param <T> 实体类
  * @param <PK> 实体类的OID，对应表的主键字段
  */
-public abstract class BaseDao<T, PK extends Serializable> {
+@Repository
+public abstract class BaseDao<T,PK extends Serializable> {
 
 	private Class<T> entityClass;
 
 	@Resource
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public BaseDao() {
@@ -76,8 +80,9 @@ public abstract class BaseDao<T, PK extends Serializable> {
 	public T findOne(String hql, Object[] params) throws Exception {
 		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
 		if (params != null && params.length > 0) {
-			for (int i = 0; i < params.length; i++)
+			for (int i = 0; i < params.length; i++) {
 				query.setParameter(i, params[i]);
+			}
 		}
 		return (T) query.uniqueResult();
 	}
@@ -149,8 +154,9 @@ public abstract class BaseDao<T, PK extends Serializable> {
 	public Long findCount(String hql, Object[] params) throws Exception {
 		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
 		if (params != null && params.length > 0) {
-			for (int i = 0; i < params.length; i++)
+			for (int i = 0; i < params.length; i++) {
 				query.setParameter(i, params[i]);
+			}
 		}
 		return (Long) query.uniqueResult();
 	}

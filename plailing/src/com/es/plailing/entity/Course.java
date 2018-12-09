@@ -20,19 +20,24 @@ public class Course {
 	private int courseId;
 	private String name;
 	private String photo;
-	private String price;
+	private double price;
 	private String courseInfo;
-	//ÉÏ´«¿Î³Ì
+	private double grade;
+	//ï¿½Ï´ï¿½ï¿½Î³ï¿½
 	private User user;
-	//¼ÓÈë
+	private Set<UserBalance> userBalances=new HashSet<UserBalance>();
+	private Set<Money> moneys=new HashSet<Money>();
+	//ï¿½ï¿½ï¿½ï¿½
 	private Set<User> joinUsers=new HashSet<User>();
-	//ÊÕ²Ø
-	private Set<User> collectUsers=new HashSet<User>();
-	//ÆÀ·Ö
+	//ï¿½Õ²ï¿½
+	private Set<UserCollectionCourse> collectUsers=new HashSet<UserCollectionCourse>();
+	//ï¿½ï¿½ï¿½ï¿½
 	private Set<Grade> grades=new HashSet<Grade>();
-	//¿Î³ÌÀàÐÍ
+	//ï¿½ï¿½ï¿½ï¿½
+	private Set<CourseComment>courseComments=new HashSet<CourseComment>();
+	//ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½
 	private CourseType courseType;
-	//¿Î³ÌÄ¿Â¼
+	//ï¿½Î³ï¿½Ä¿Â¼
 	private Set<CourseCatalog> courseCatalogs=new HashSet<CourseCatalog>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -54,11 +59,17 @@ public class Course {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
+	}
+	public double getGrade() {
+		return grade;
+	}
+	public void setGrade(double grade) {
+		this.grade = grade;
 	}
 	@ManyToOne
 	@JoinColumn(name="userId")
@@ -82,12 +93,11 @@ public class Course {
 	public void setJoinUsers(Set<User> joinUsers) {
 		this.joinUsers = joinUsers;
 	}
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="tbl_usercollectioncourse",joinColumns= {@JoinColumn(name="courseId")},inverseJoinColumns= {@JoinColumn(name="userId")})
-	public Set<User> getCollectUsers() {
+	@OneToMany(mappedBy="course",targetEntity=UserCollectionCourse.class,cascade={CascadeType.ALL})
+	public Set<UserCollectionCourse> getCollectUsers() {
 		return collectUsers;
 	}
-	public void setCollectUsers(Set<User> collectUsers) {
+	public void setCollectUsers(Set<UserCollectionCourse> collectUsers) {
 		this.collectUsers = collectUsers;
 	}
 	@OneToMany(mappedBy="course",targetEntity=Grade.class,cascade={CascadeType.ALL})
@@ -96,6 +106,13 @@ public class Course {
 	}
 	public void setGrades(Set<Grade> grades) {
 		this.grades = grades;
+	}
+	@OneToMany(mappedBy="course",targetEntity=CourseComment.class,cascade={CascadeType.ALL})
+	public Set<CourseComment> getCourseComments() {
+		return courseComments;
+	}
+	public void setCourseComments(Set<CourseComment> courseComments) {
+		this.courseComments = courseComments;
 	}
 	@ManyToOne
 	@JoinColumn(name="typeId")
@@ -111,5 +128,19 @@ public class Course {
 	}
 	public void setCourseCatalogs(Set<CourseCatalog> courseCatalogs) {
 		this.courseCatalogs = courseCatalogs;
+	}
+	@OneToMany(mappedBy="course",targetEntity=Money.class,cascade={CascadeType.ALL})
+	public Set<Money> getMoneys() {
+		return moneys;
+	}
+	public void setMoneys(Set<Money> moneys) {
+		this.moneys = moneys;
+	}
+	@OneToMany(mappedBy="course",targetEntity=UserBalance.class,cascade={CascadeType.ALL})
+	public Set<UserBalance> getUserBalances() {
+		return userBalances;
+	}
+	public void setUserBalances(Set<UserBalance> userBalances) {
+		this.userBalances = userBalances;
 	}
 }
