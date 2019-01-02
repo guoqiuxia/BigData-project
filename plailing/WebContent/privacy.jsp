@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>privacy</title>
-<link href="css/whir_style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
+<link href="${ctx }/css/whir_style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${ctx }/app/css/dest/styles.css?=2016121272249">
 <link rel="stylesheet"
-	href="app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="${ctx }/app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="static/font-awesome//4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
+	href="${ctx }/static/font-awesome//4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="${ctx }/app/css/dest/styles.css?=2016121272249">
 
 <style>
 @font-face {
@@ -176,189 +178,6 @@
 					</div>
 				</div>
 
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-	<div class="modal fade" id="invite-user" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
-					<h4 class="modal-title">邀请好友，双方都可获赠E享积分！</h4>
-				</div>
-				<div class="modal-body">
-
-					<p>
-					<h4>
-						<a href="#sign-modal" data-toggle="modal" data-sign="signin">登录</a>后邀请好友注册，您和好友将分别获赠3个E享积分！
-					</h4>
-					</p>
-
-					<div id="msg-modal"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="flash-message" tabindex="-1" role="dialog">
-		<div class="modal-dialog" rolw="document"></div>
-	</div>
-	<div class="modal fade" id="modal-message" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
-					<h4 class="modal-title">注意</h4>
-				</div>
-				<div class="modal-body"></div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary confirm"
-						data-dismiss="modal">确定</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-	<div class="modal fade" id="sign-modal" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<button type="button" class="close-modal" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<div class="modal-body">
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#signin-form"
-							aria-controls="signin-form" role="tab" data-toggle="tab">登录</a></li>
-						<li role="presentation"><a href="#signup-form"
-							aria-controls="signup-form" role="tab" data-toggle="tab">注册</a></li>
-					</ul>
-					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="signin-form">
-							<form action="/login" method="post">
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-envelope" style="margin: 0;"></i>
-										</div>
-										<input type="email" name="login" class="form-control"
-											placeholder="请输入邮箱">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-lock" style="margin: 0;"></i>
-										</div>
-										<input type="password" name="password" class="form-control"
-											placeholder="请输入密码">
-									</div>
-								</div>
-								<div class="form-inline verify-code-item" style="display: none;">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" name="captcha_v" class="form-control"
-												placeholder="请输入验证码">
-										</div>
-									</div>
-									<img class="verify-code" src=""
-										source="https://www.shiyanlou.com/captcha.gif">
-								</div>
-								<div class="form-group remember-login">
-									<input name="remember" type="checkbox" value="y">
-									下次自动登录 <a class="pull-right" href="reset_password/index.html">忘记密码？</a>
-								</div>
-								<div class="form-group">
-									<input class="btn btn-primary" name="submit" type="submit"
-										value="进入E享课堂">
-								</div>
-								<div class="form-group widget-signin">
-									<span>快速登录</span> <a href="/auth/qq?next="><i
-										class="fa fa-qq"></i></a> <a href="/auth/weibo?next="><i
-										class="fa fa-weibo"></i></a> <a href="/auth/weixin?next="><i
-										class="fa fa-weixin"></i></a> <a href="/auth/github?next="><i
-										class="fa fa-github"></i></a> <a href="/auth/renren?next="><i
-										class="fa fa-renren"></i></a>
-								</div>
-								<div class="form-group error-msg">
-									<div class="alert alert-danger" role="alert"></div>
-								</div>
-							</form>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="signup-form">
-							<form action="/register" method="post">
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-envelope" style="margin: 0;"></i>
-										</div>
-										<input type="email" name="email" class="form-control"
-											placeholder="请输入邮箱">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-lock" style="margin: 0;"></i>
-										</div>
-										<input type="password" name="password" class="form-control"
-											placeholder="请输入密码">
-									</div>
-								</div>
-								<div class="form-inline">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" name="captcha_v" class="form-control"
-												placeholder="请输入验证码">
-										</div>
-									</div>
-									<img class="verify-code" src=""
-										source="https://www.shiyanlou.com/captcha.gif">
-								</div>
-								<div class="form-group">
-									<input class="btn btn-primary" name="submit" type="submit"
-										value="注册">
-								</div>
-								<div class="form-group agree-privacy">
-									注册表示您已经同意我们的<a href="privacy/index.html" target="_blank">隐私条款</a>
-								</div>
-								<div class="form-group widget-signup">
-									<span>快速注册</span> <a href="/auth/qq?next="><i
-										class="fa fa-qq"></i></a> <a href="/auth/weibo?next="><i
-										class="fa fa-weibo"></i></a> <a href="/auth/weixin?next="><i
-										class="fa fa-weixin"></i></a> <a href="/auth/github?next="><i
-										class="fa fa-github"></i></a> <a href="/auth/renren?next="><i
-										class="fa fa-renren"></i></a>
-								</div>
-								<div class="form-group error-msg">
-									<div class="alert alert-danger" role="alert"></div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

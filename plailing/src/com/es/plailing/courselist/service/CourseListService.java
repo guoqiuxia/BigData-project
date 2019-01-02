@@ -23,5 +23,6 @@ public interface CourseListService {
 	public List<Course> listCourseHotCourses();
 	public List<Course> listAllCourses();
 	public Page<Course> listAllCoursesPage(int pageNum,int pageSize,int total);
+	public List<CourseType> listCoursesChildType(int fId);
 }
 

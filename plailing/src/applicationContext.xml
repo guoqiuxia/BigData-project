@@ -41,8 +41,4 @@
 			</props>
 		</property>
 	</bean>
-<!-- 	<bean id="transactionManger" class="org.springframework.orm.hibernate5.hibernatetransactionManger"> -->
-<!-- 		<property name="sessionFactory" ref="srssionFactory"></property>	 -->
-<!-- 	</bean> -->
-<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/> -->
 	</beans>

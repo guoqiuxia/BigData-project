@@ -50,30 +50,39 @@
 				<div class="videoinfo1">
 					<div class="left5020">
 					
-						<c:forEach items="${courses}" var="c">
+						<c:forEach items="${studyListPage.list}" var="c">
 						<div class="col-md-4 col-sm-6  course">
-							<a class="course-box" href="show.jsp">
+							<a class="course-box" href="${ctx }/courseDetail?courseId=${c.course.courseId}">
 								<div class="sign-box">
 									<i class="fa fa-star-o course-follow pull-right"
 										data-follow-url="/courses/1/follow"
 										data-unfollow-url="/courses/1/unfollow" style="display: none"></i>
 								</div>
 								<div class="course-img">
-									<img src="${c.photo}">
+									<img src="${ctx }/${c.course.photo}">
 								</div>
 								<div class="course-body">
 									<span class="course-title" data-toggle="tooltip"
-										data-placement="bottom" title="">${c.name}</span>
+										data-placement="bottom" title="">${c.course.name}</span>
 								</div>
 								<div class="course-footer">
 									<span class="course-per-num pull-left"> <i
-										class="fa fa-users"></i> 85219
+										class="fa fa-users"></i> 上课人数${c.course.getJoinUsers().size() }
 									</span>
 								</div>
 							</a>
 						</div>
 						</c:forEach>
-														
+							
+						<div class="pagination-container pagemiddle">
+							<span>
+								共${studyListPage.totalPageNum}页
+							</span>
+							<a class="wordstyle" href="${ctx }/user/join?studyPageNum=1"><font size="2px"> 首页 </font></a>&nbsp;&nbsp;&nbsp; 
+							<a class="wordstyle" href="${ctx }/user/join?studyPageNum=${studyListPage.prePageNum }"><font size="2px"> 上一页 </font></a>&nbsp;&nbsp;&nbsp; 
+							<a class="wordstyle" href="${ctx }/user/join?studyPageNum=${studyListPage.nextPageNum }"><font size="2px"> 下一页 </font></a>&nbsp;&nbsp;&nbsp; 
+							<a class="wordstyle" href="${ctx }/user/join?studyPageNum=${studyListPage.totalPageNum }"><font size="2px"> 末页 </font></a>&nbsp;&nbsp;&nbsp;
+						</div>							
 					</div>
 				</div>
 			</div>

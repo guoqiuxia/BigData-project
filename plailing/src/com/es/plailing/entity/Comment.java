@@ -22,6 +22,7 @@ public class Comment {
 	private int commentId;
 	private String text;
 	private Date commentTime;
+	private int top;
 
 	//×ÓÆÀÂÛ
 	private Set<Comment> comments=new HashSet<Comment>();
@@ -83,4 +84,11 @@ public class Comment {
 	public void setCourseCatalog(CourseCatalog courseCatalog) {
 		this.courseCatalog = courseCatalog;
 	}
+	public int getTop() {
+		return top;
+	}
+	public void setTop(int top) {
+		this.top = top;
+	}
+	
 }

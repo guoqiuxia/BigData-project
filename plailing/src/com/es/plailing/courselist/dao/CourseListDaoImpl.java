@@ -47,4 +47,11 @@ public class CourseListDaoImpl extends BaseDao<CourseType,Integer>{
 		Object[] params = {tId};
 		return this.findOne(hql, params);
 	}
+	@SuppressWarnings("unchecked")
+	public List<CourseType> listCourseChildType(int fId) throws Exception{
+		String hql = "from CourseType ct where ct.courseType.typeId=?";
+		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+		query.setParameter(0,fId);
+		return query.list();
+	}
 }

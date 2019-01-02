@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>TestNG:  wangdonghui</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>wangdonghui</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>10/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat Dec 29 19:14:35 CST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>308 seconds (308262 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='test.AddComment_test.addcourse_coment()'><b>addcourse_coment</b><br>Test class: test.AddComment_test</td>
+<td><div><pre>java.lang.AssertionError: expected [您的评论已发表成功] but found [您的评论以发表成功！]
+	at test.AddComment_test.addcourse_coment(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1718906711", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1718906711'><pre>java.lang.AssertionError: expected [您的评论已发表成功] but found [您的评论以发表成功！]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at test.AddComment_test.addcourse_coment(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.TestNG.privateMain(TestNG.java:1354)
+	at org.testng.TestNG.main(TestNG.java:1323)
+</pre></div></td>
+<td>13</td>
+<td>test.AddComment_test@6d4b1c02</td></tr>
+<tr>
+<td title='test.ApplyPlace_test.applyplace()'><b>applyplace</b><br>Test class: test.ApplyPlace_test<br>Parameters: 5, null, 2019, 02/02 08:00, 2, 您的申请提交失败，请查看您的场地类型是否填写有误！</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:42)
+	at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:197)
+	at com.webtest.core.WebDriverEngine.selectByValue(WebDriverEngine.java:226)
+	at test.ApplyPlace_test.applyplace(Unknown Source)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1201004240", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1201004240'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:42)
+	at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:197)
+	at com.webtest.core.WebDriverEngine.selectByValue(WebDriverEngine.java:226)
+	at test.ApplyPlace_test.applyplace(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.TestNG.privateMain(TestNG.java:1354)
+	at org.testng.TestNG.main(TestNG.java:1323)
+</pre></div></td>
+<td>9</td>
+<td>test.ApplyPlace_test@5622fdf</td></tr>
+<tr>
+<td title='test.Login_test.login()'><b>login</b><br>Test class: test.Login_test<br>Parameters: 3, 15226538851@163.com, 123456, 退出</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at action.Login_action.login(Unknown Source)
+	at test.Login_test.login(Unknown Source)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1429483328", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1429483328'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at org.testng.Assert.assertTrue(Assert.java:54)
+	at action.Login_action.login(Unknown Source)
+	at test.Login_test.login(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.TestNG.privateMain(TestNG.java:1354)
+	at org.testng.TestNG.main(TestNG.java:1323)
+</pre></div></td>
+<td>9</td>
+<td>test.Login_test@1794d431</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='test.AddReply_test.addcourse_reply()'><b>addcourse_reply</b><br>Test class: test.AddReply_test</td>
+<td></td>
+<td>17</td>
+<td>test.AddReply_test@6093dd95</td></tr>
+<tr>
+<td title='test.ApplyPlace_test.applyplace()'><b>applyplace</b><br>Test class: test.ApplyPlace_test<br>Parameters: 1, 公教楼, 2019, 02/02 08:00, 2, 您的申请提交成功，请等候消息！</td>
+<td></td>
+<td>18</td>
+<td>test.ApplyPlace_test@5622fdf</td></tr>
+<tr>
+<td title='test.ApplyPlace_test.applyplace()'><b>applyplace</b><br>Test class: test.ApplyPlace_test<br>Parameters: 2, 篮球场, 2018, 12/31 03:45, 3, 您的申请提交成功，由于天数小于两天，成功性较低，请耐心等候消息！</td>
+<td></td>
+<td>18</td>
+<td>test.ApplyPlace_test@5622fdf</td></tr>
+<tr>
+<td title='test.ApplyPlace_test.applyplace()'><b>applyplace</b><br>Test class: test.ApplyPlace_test<br>Parameters: 3, 篮球场, 2017, 12/25 03:45, 3, 您的申请提交失败，请查看您的使用时间是否填写有误！</td>
+<td></td>
+<td>18</td>
+<td>test.ApplyPlace_test@5622fdf</td></tr>
+<tr>
+<td title='test.ApplyPlace_test.applyplace()'><b>applyplace</b><br>Test class: test.ApplyPlace_test<br>Parameters: 4, 篮球场, 2019, 12/25 03:45, 4.1, 您的申请提交失败，请查看您的使用时长是否填写有误！</td>
+<td></td>
+<td>18</td>
+<td>test.ApplyPlace_test@5622fdf</td></tr>
+<tr>
+<td title='test.ContinueSC_test.continueSC()'><b>continueSC</b><br>Test class: test.ContinueSC_test<br>Parameters: 1, video.mp4, java, 视频信息已经保存！</td>
+<td></td>
+<td>17</td>
+<td>test.ContinueSC_test@7d9d1a19</td></tr>
+<tr>
+<td title='test.CreateCourse_test.createcourse()'><b>createcourse</b><br>Test class: test.CreateCourse_test<br>Parameters: 1, tx.jpg, tx.jpg, video.mp4, 是只好猫毛毛啊, java, 这是一个讲述如何养猫的课程, 摄像技术, 人像, 100, tx.jpg</td>
+<td></td>
+<td>20</td>
+<td>test.CreateCourse_test@39c0f4a</td></tr>
+<tr>
+<td title='test.Login_test.login()'><b>login</b><br>Test class: test.Login_test<br>Parameters: 1, 123@qq.com, , 邮箱或密码错误</td>
+<td></td>
+<td>10</td>
+<td>test.Login_test@1794d431</td></tr>
+<tr>
+<td title='test.Login_test.login()'><b>login</b><br>Test class: test.Login_test<br>Parameters: 2, , 12345678, 邮箱或密码错误</td>
+<td></td>
+<td>10</td>
+<td>test.Login_test@1794d431</td></tr>
+<tr>
+<td title='test.ChangePersonalMessage_test.personalMessage()'><b>personalMessage</b><br>Test class: test.ChangePersonalMessage_test<br>Parameters: 1, 爱打酱油的猫, 123456, 123456, tx.jpg, 女, 河北, 石家庄, 2012-02-06, 15226538851, 130928199802060004, 河北吃饭大学, 吃饭, 是只好猫, 确认修改个人信息？</td>
+<td></td>
+<td>26</td>
+<td>test.ChangePersonalMessage_test@4883b407</td></tr>
+</table><p>
+</body>
+</html>

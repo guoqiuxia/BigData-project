@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 
 <script type="text/javascript">
 	/**
@@ -20,110 +21,134 @@
 		}
 		return url;
 	}
-	/*  function login(){
-	var email = $('#email').val();
-	var password=$('#password').val();
-	$.ajax({
-		url:'login',
-		data:{
-			'email':email,
-			'password':password
-		},
-		type:'post',
-		asyn:false,
-		success:function(result){
-			if(result!="pass"){
-				alert("请重新登录！！！")
-			}
-		}
-	})
-	}  */
-
-	/* function checkEamil(){
+	
+ 	 function checkVerify(){
 		var email = $('#email').val();
+		var password = $('#password').val();
+		var captcha_v = $('#captcha_v').val();
 		$.ajax({
-			url:'register',
+			url:'verify',
 			data:{
 				'email':email,
+				'password':password,
+				'captcha_v':captcha_v
 			},
 			type:'post',
 			asyn:false,
 			success:function(result){
-				if(result!="pass"){
-					document.getElementById("emailPoint").innerHTML = "邮箱格式不正确";
+				console.log(134);
+				if(result=="1"){
+					window.location.href='register?email='+email+'&password='+password+'&captcha_v='+captcha_v;
+					
+				}else if(result=="2"){
+					document.getElementById("point").innerHTML = "";
+					
+				}else if(result=="3"){
+					document.getElementById("point").innerHTML = "";
+				
+				}else if(result=="4"){
+					document.getElementById("point").innerHTML = "验证码错误";
+				
+				}else if(result=="5"){
+					document.getElementById("point").innerHTML = "";
+				
+				}else if(result=="6"){
+					document.getElementById("point").innerHTML = "验证码错误";
+				
+				}else if(result=="7"){
+					document.getElementById("point").innerHTML = "验证码错误";
+				
+				}else if(result=="8"){
+					document.getElementById("point").innerHTML = "邮箱、密码和验证码不能为空";
+				}
+			}
+		})	
+	} 
+ 	 
+ 	function checkVerifyE(){
+ 		var email = $('#email').val();
+ 		$.ajax({
+ 			url:'verifyEmail',
+ 			data:{
+ 				'email':email
+ 			},
+ 			type:'post',
+ 			asyn:false,
+ 			success:function(result){
+ 				if(result=="email pass"){
+ 					document.getElementById("emailPoint").innerHTML ="";
+ 				}else if(result =="email exist"){
+ 					document.getElementById("emailPoint").innerHTML ="邮箱已注册";
+ 				}else if(result=="email not pass"){
+ 					document.getElementById("emailPoint").innerHTML = "邮箱格式由字母、数字、下划线、中划线组成5-20位";
+ 				}
+ 			}
+ 		})	
+ 	}
+ 	 
+ 	 function checkVerifyP(){
+		var password = $('#password').val();
+		$.ajax({
+			url:'verifyPassword',
+			data:{
+				'password':password
+			},
+			type:'post',
+			asyn:false,
+			success:function(result){
+				if(result=="password pass"){
+					document.getElementById("passwordPoint").innerHTML ="";
 				}else{
-					document.getElementById("emailPoint").innerHTML = "";
+					document.getElementById("passwordPoint").innerHTML = "密码格式数字、字母、下划线组成6-19位";
 				}
 			}
-		})
-	} */
-
-	function login() {
-		console.log(4);
-		var email = document.getElementById("lemail").value;
-		var password = document.getElementById("lpassword").value;
-		var xmlhttp;
-		if (window.XMLHttpRequest) {
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.open("GET", "login?email=" + email + "&password=" + password,
-				true);
-		xmlhttp.send();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.state == 200) {
-				var result = xmlhttp.responseText;
-				if (result == "success") {
-					alert("登录成功");
-					$("#loginhidden").style.display = "none";
-					$("#loginshow").style.display = "block";
-				} else if (result == "false") {
-					alert("请重新登录");
-					$("#loginhidden").style.display = "block";
-					$("#loginshow").style.display = "none";
-				} else if (result == "null") {
-					alter("没有注册该用户");
-					$("#loginhidden").style.display = "block";
-					$("#loginshow").style.display = "none";
-				}
-			}
-		}
+		})	
 	}
-</script>
-
-<script type="text/javascript">
-	function login() {
-		console.log(4);
-		var email = document.getElementById("lemail").value;
-		var password = document.getElementById("lpassword").value;
-		var xmlhttp;
-		if (window.XMLHttpRequest) {
-			xmlhttp = new XMLHttpRequest();
-		} else {
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.open("GET", "login?email=" + email + "&password=" + password,
-				true);
-		xmlhttp.send();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.state == 200) {
-				var result = xmlhttp.responseText;
-				if (result == "success") {
-					$("#loginhidden").style.display = "none";
-					$("#loginshow").style.display = "block";
-				} else if (result == "false") {
-					alert("请重新登录");
-					$("#loginhidden").style.display = "block";
-					$("#loginshow").style.display = "none";
-				} else if (result == "null") {
-					alter("没有注册该用户");
-					$("#loginhidden").style.display = "block";
-					$("#loginshow").style.display = "none";
+ 	 	 
+ 	function verifyUser(){
+ 		var lemail=$('#lemail').val();			
+			$.ajax({
+				url:'verifyUser',
+				data:{
+					'email':lemail
+				},
+				type:'post',
+				asyn:false,				
+				success:function(result){
+			 		if(result=="email can use"){
+			 			document.getElementById("notNull").innerHTML ="";
+			 		}else if(result=="email not exist"){
+						document.getElementById("notNull").innerHTML ="用户不存在";
+					}else if(result="email error"){
+						document.getElementById("notNull").innerHTML ="邮箱错误";
+					}					
 				}
-			}
-		}
-	}
+			})	
+ 	}
+ 	
+ 	function toLogin(){
+ 		var lemail=$('#lemail').val();
+ 		var lpassword =$('#lpassword').val(); 		
+			$.ajax({
+				url:'login',
+				data:{
+					'email':lemail,
+					'password':lpassword
+				},
+				type:'get',
+				asyn:false,
+				success:function(result){
+					if(result=="false"){
+					    document.getElementById("notNull").innerHTML ="邮箱或密码错误";  
+					}else if(result=="true"){
+						window.location.href='index';
+					}
+				}
+			})	
+ 		
+ 	}
+
+
 </script>
 <div class="modal fade" id="sign-modal" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-sm" role="document">
@@ -141,14 +166,15 @@
 				</ul>
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="signin-form">
-						<form>
+						<form method="post" onkeydown="if(event.keyCode==13) return toLogin();">
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-addon">
 										<i class="fa fa-envelope" style="margin: 0;"></i>
 									</div>
 									<input type="text" name="email" class="form-control"
-										id="lemail" placeholder="请输入邮箱">
+										id="lemail" placeholder="请输入邮箱" 
+										onblur="verifyUser()"/>
 								</div>
 							</div>
 							<div class="form-group">
@@ -160,39 +186,37 @@
 										placeholder="请输入密码" id="lpassword">
 								</div>
 							</div>
+							<div><span id="notNull" style="color:red;font-size:12px;"></span></div>
 							<div class="form-group remember-login">
 								<input name="remember" type="checkbox" value="y"> 下次自动登录
-								<a class="pull-right" href="forgetpwd1.jsp">忘记密码？</a>
+								<a class="pull-right" href="${ctx }/forgetpwd1.jsp">忘记密码？</a>
 							</div>
 							<div class="form-group">
-								<!--  <input class="btn btn-primary" name="button" type="button"
-									value="登录" onclick="javascript:login()">  -->
-								<button class="btn btn-primary" onclick="login()">登录</button>
+								<button class="btn btn-primary" type="button" onclick="toLogin()">登录</button>
 							</div>
 							<div class="form-group widget-signin">
-								<span>快速登录</span> <a href="/auth/qq?next="><i
+								<span>快速登录</span> <a href="${ctx }//auth/qq?next="><i
 									class="fa fa-qq"></i></a> <a href="/auth/weibo?next="><i
 									class="fa fa-weibo"></i></a> <a href="/auth/weixin?next="><i
 									class="fa fa-weixin"></i></a>
 							</div>
 							<div class="form-group error-msg">
-								<div class="alert alert-danger" role="alert"></div>
+								<span id="tip"></span>
 							</div>
 						</form>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="signup-form">
 						<c:set var="ctx" value="${pageContext.request.contextPath}" />
-						<form action="register" method="post">
+						<form method="post" onkeydown="if(event.keyCode==13) return checkVerify();">
 							<div class="form-group">
 								<div class="input-group">
 									<div class="input-group-addon">
 										<i class="fa fa-envelope" style="margin: 0;"></i>
 									</div>
 									<input type="text" name="email" class="form-control"
-										placeholder="请输入邮箱" id="email" onblur="checkEmail()">
-									<span id="emailPoint"></span>
+										placeholder="请输入邮箱" id="email" onblur="checkVerifyE()">									
 								</div>
-
+								<span id="emailPoint" style="color:red;font-size:2px;"></span>
 							</div>
 							<div class="form-group">
 								<div class="input-group">
@@ -200,10 +224,11 @@
 										<i class="fa fa-lock" style="margin: 0;"></i>
 									</div>
 									<input type="password" name="password" class="form-control"
-										placeholder="请输入密码" id="password"> <span
-										id="passwordPoint"></span>
+										placeholder="请输入密码" id="password" onblur="checkVerifyP()">
 								</div>
-							</div>
+								<span id="passwordPoint" style="color:red;font-size:2px;"></span>
+								
+							</div>													
 							<div class="form-inline">
 								<div class="form-group">
 									<div class="input-group">
@@ -213,12 +238,13 @@
 								</div>
 								<img id="codeImg" src="${ctx}/captcha" onclick="changeImg()">
 							</div>
+							<span id="point" style="color:red;font-size:2px;"></span>
 							<div class="form-group">
-								<input class="btn btn-primary" name="submit" type="submit"
-									onclick="register()" value="注册">
+								<input class="btn btn-primary" type="button"
+									onclick="checkVerify()" value="注册">
 							</div>
 							<div class="form-group agree-privacy">
-								注册表示您已经同意我们的<a href="privacy.jsp" target="_blank">隐私条款</a>
+								注册表示您已经同意我们的<a href="${ctx }/privacy.jsp" target="_blank">隐私条款</a>
 							</div>
 							<div class="form-group widget-signup">
 								<span>快速注册</span> <a href="/auth/qq?next="><i
@@ -237,9 +263,6 @@
 		</div>
 	</div>
 </div>
-<div id="base-data" data-flash="false" data-is-login=false
-	data-is-jwt=true data-socket-url="wss://comet.shiyanlou.com"
-	data-msg-user="" data-msg-system=""></div>
 
 <script src="app/dest/lib/lib.js?=2016121272249"></script>
 <script src="static/jquery/2.2.4/jquery.min.js"></script>

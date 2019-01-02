@@ -23,12 +23,14 @@ public class Course {
 	private double price;
 	private String courseInfo;
 	private double grade;
+	private int joinCount;
+	private int state;
 	//ï¿½Ï´ï¿½ï¿½Î³ï¿½
 	private User user;
 	private Set<UserBalance> userBalances=new HashSet<UserBalance>();
 	private Set<Money> moneys=new HashSet<Money>();
 	//ï¿½ï¿½ï¿½ï¿½
-	private Set<User> joinUsers=new HashSet<User>();
+	private Set<UserJoinCourse> joinUsers=new HashSet<UserJoinCourse>();
 	//ï¿½Õ²ï¿½
 	private Set<UserCollectionCourse> collectUsers=new HashSet<UserCollectionCourse>();
 	//ï¿½ï¿½ï¿½ï¿½
@@ -39,6 +41,12 @@ public class Course {
 	private CourseType courseType;
 	//ï¿½Î³ï¿½Ä¿Â¼
 	private Set<CourseCatalog> courseCatalogs=new HashSet<CourseCatalog>();
+	//Í¨Öª
+	private Set<Inform> informs=new HashSet<Inform>();
+	//ÉêÇë³¡µØÐÅÏ¢
+	private Set<ApplicationSite> applicationSites=new HashSet<ApplicationSite>();
+	//ÐèÇó
+	private Demand demand;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getCourseId() {
@@ -71,6 +79,12 @@ public class Course {
 	public void setGrade(double grade) {
 		this.grade = grade;
 	}
+	public int getJoinCount() {
+		return joinCount;
+	}
+	public void setJoinCount(int joinCount) {
+		this.joinCount = joinCount;
+	}
 	@ManyToOne
 	@JoinColumn(name="userId")
 	public User getUser() {
@@ -85,12 +99,11 @@ public class Course {
 	public void setCourseInfo(String courseInfo) {
 		this.courseInfo = courseInfo;
 	}
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="tbl_userjoincourse",joinColumns= {@JoinColumn(name="courseId")},inverseJoinColumns= {@JoinColumn(name="userId")})
-	public Set<User> getJoinUsers() {
+	@OneToMany(mappedBy="course",targetEntity=UserJoinCourse.class,cascade= {CascadeType.ALL})
+	public Set<UserJoinCourse> getJoinUsers() {
 		return joinUsers;
 	}
-	public void setJoinUsers(Set<User> joinUsers) {
+	public void setJoinUsers(Set<UserJoinCourse> joinUsers) {
 		this.joinUsers = joinUsers;
 	}
 	@OneToMany(mappedBy="course",targetEntity=UserCollectionCourse.class,cascade={CascadeType.ALL})
@@ -143,4 +156,32 @@ public class Course {
 	public void setUserBalances(Set<UserBalance> userBalances) {
 		this.userBalances = userBalances;
 	}
+	@OneToMany(mappedBy="course",targetEntity=Inform.class,cascade={CascadeType.ALL})
+	public Set<Inform> getInforms() {
+		return informs;
+	}
+	public void setInforms(Set<Inform> informs) {
+		this.informs = informs;
+	}
+	@OneToMany(mappedBy="course",targetEntity=ApplicationSite.class,cascade={CascadeType.ALL})
+	public Set<ApplicationSite> getApplicationSites() {
+		return applicationSites;
+	}
+	public void setApplicationSites(Set<ApplicationSite> applicationSites) {
+		this.applicationSites = applicationSites;
+	}
+	@ManyToOne
+	@JoinColumn(name="demandId")
+	public Demand getDemand() {
+		return demand;
+	}
+	public void setDemand(Demand demand) {
+		this.demand = demand;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}	
 }

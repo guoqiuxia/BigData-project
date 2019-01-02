@@ -31,7 +31,9 @@
 <link rel="stylesheet" href="${ctx}/app/css/dest/styles.css?=2016121272249">
 </head>
 <body>
-	<%@include file="header.jsp"%>
+	<div id="header">
+		<%@include file="header.jsp"%>
+	</div>
 	<div class="clear"></div>
 	<div class="subbox">
 		<!--左侧部分-->
@@ -44,7 +46,6 @@
 				</h1>
 			</div>	
 			<div class="display">
-				<c:if test="${'1'==up }">
 					<div class="title12">
 						<img src="img/scimg3.jpg" />
 					</div>
@@ -66,12 +67,6 @@
 					<div class="spbcxx">
 						<span>视频信息已经保存！</span>
 					</div>
-				</c:if>
-				<c:if test="${'0'==up }">
-					<div class="sccg">
-					<p>课程上传失败，请<a href="${ctx}/upload/find">填写完整信息</a></p>
-					</div>
-				</c:if>
 			</div>
 		</div>
 		<div class="clear" style="height: 38px;"></div>

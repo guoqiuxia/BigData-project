@@ -4,10 +4,10 @@
 		<div class="left180">
 			<div class="grtx">
 				<div class="grimg">
-					<img src="${leftUser.photo}" style="margin-left:4px;margin-top:5px;"/>
+					<img src="${ctx }/${leftUser.photo}" style="margin-left:4px;margin-top:5px;"/>
 				</div>
 				<div class="grname">
-					<a href="#">${leftUser.nickName}</a>
+					<span style="font-size:14px;color:#03ab81;font-weight:bold;">${leftUser.nickName}</span>
 				</div>
 			</div>
 			<br>
@@ -19,19 +19,27 @@
 				<li><a href="${ctx }/user/join"><em>学习课程</em></a></li>
 			</ul>
 			<ul class="menu1">
-				<li><a href="upload.jsp"><em>上传课程</em></a></li>
+				<li><a href="${ctx }/upload"><em>上传课程</em></a></li>
 
 			</ul>
 			<ul class="menu1">
-				<li><a href="relate.jsp"><em>与我相关</em></a></li>
+				<li><a href="${ctx }/relatecomment/find"><em>与我相关</em></a></li>
 
 			</ul>
 			<ul class="menu1">
-				<li><a href="${ctx }/user/balance"><em>零钱明细</em></a></li>
+				<li><a href="${ctx }/relate"><em>系统通知</em></a></li>
 
 			</ul>
 			<ul class="menu1">
-				<li><a href="collection.jsp"><em>我的收藏</em></a></li>
+				<li><a href="${ctx }/user/finance"><em>零钱明细</em></a></li>
+
+			</ul>
+			<ul class="menu1">
+				<li><a href="${ctx }/collection"><em>我的收藏</em></a></li>
+
+			</ul>
+			<ul class="menu1">
+				<li><a href="${ctx }/follow"><em>关&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</em></a></li>
 
 			</ul>
 			

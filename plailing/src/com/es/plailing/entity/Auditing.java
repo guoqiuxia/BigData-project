@@ -18,6 +18,8 @@ public class Auditing {
 	private int checkState;
 	//管理员
 	private Administrator administrator;
+	//用户
+	private User user;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getAuditingId() {
@@ -64,5 +66,17 @@ public class Auditing {
 	public void setAdministrator(Administrator administrator) {
 		this.administrator = administrator;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="userId")
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
+	
 	
 }

@@ -1,26 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Author" contect="http://www.webqin.net">
 <title>忘记密码</title>
-<link rel="shortcut icon" href="images/favicon.ico" />
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="${ctx }/images/favicon.ico" />
+<link type="text/css" href="${ctx }/css/css.css" rel="stylesheet" />
+<link rel="shortcut icon" href="${ctx }/favicon.ico">
 <link rel="stylesheet"
-	href="static/font-awesome//4.7.0/css/font-awesome.min.css">
+	href="${ctx }/static/font-awesome//4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
-	href="static/highlight.js/9.8.0/monokai-sublime.min.css">
+	href="${ctx }/static/highlight.js/9.8.0/monokai-sublime.min.css">
 <link rel="stylesheet"
-	href="app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="app/css/libs/katex/0.6.0/katex.min.css">
+	href="${ctx }/app/css/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="${ctx }/app/css/libs/katex/0.6.0/katex.min.css">
 <link rel="stylesheet"
-	href="app/css/libs/videojs/5.11.7/video-js.min.css">
-<link rel="stylesheet" href="app/css/dest/styles.css?=2016121272249">
-<link href="css/whir_grzx.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	href="${ctx }/app/css/libs/videojs/5.11.7/video-js.min.css">
+<link rel="stylesheet" href="${ctx }/app/css/dest/styles.css?=2016121272249">
+<link href="${ctx }/css/whir_grzx.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx }/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
 	//导航定位
 	$(function() {

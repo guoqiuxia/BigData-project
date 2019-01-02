@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="tbl_applicationsite")
@@ -15,6 +17,9 @@ public class ApplicationSite {
 	private Date useTime;
 	private double useLang; 
 	private Date applicationTime;
+	//ÉêÇë¿Î³Ì
+	private Course course;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getSiteId() {
@@ -46,6 +51,14 @@ public class ApplicationSite {
 	}
 	public void setApplicationTime(Date applicationTime) {
 		this.applicationTime = applicationTime;
+	}
+	@ManyToOne
+	@JoinColumn(name="courseId")
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 }

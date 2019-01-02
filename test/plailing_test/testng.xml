@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="s1" verbose="1" >
+	<listeners> 	
+        <listener class-name="com.webtest.core.WebTestListener" /> 
+     <!--    <listener class-name="com.webtest.core.WebListenerScreenShot" /> -->
+	</listeners>
+
+	<test name="wangdonghui">
+		<classes>
+			<class name="test.AddComment_test"/>
+			<class name="test.AddReply_test"/>
+			<class name="test.ApplyPlace_test"/>
+			<class name="test.ChangePersonalMessage_test"/>
+			<class name="test.ContinueSC_test"/>
+			<class name="test.CreateCourse_test"/>
+			<class name="test.Login_test"/> 
+			
+		</classes>
+	</test>
+
+
+</suite>

@@ -3,8 +3,10 @@ package com.es.plailing.courselist.controller;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +50,7 @@ public class CourseListController {
 		int total = this.courseListServiceImpl.listAllCourses().size();
 		System.out.print(total);
 		System.out.print("helloworld");
-		Page<Course> page = courseListServiceImpl.listAllCoursesPage(pageNum, 15,total);
+		Page<Course> page = courseListServiceImpl.listAllCoursesPage(pageNum, 12,total);
 		Map<Object,Integer> Coursespage= new LinkedHashMap<Object,Integer>();
 		for(Course c:page.getList()) {
 			Coursespage.put(c,c.getJoinUsers().size());
@@ -71,8 +73,9 @@ public class CourseListController {
 	@RequestMapping("/courseListF")
 	public String courseListF(@RequestParam(value="pageNum",defaultValue="1") int pageNum,HttpServletRequest request,@RequestParam("fTypeId") int fTypeId){
 		CourseType fCourseType = courseListServiceImpl.getPareType(fTypeId);
-		request.getServletContext().setAttribute("fCourseType",fCourseType);
-		Page<Course> page = this.courseListServiceImpl.listParentCoursesPage(pageNum, 15, fCourseType);
+		List<CourseType> cCourseTypes = this.courseListServiceImpl.listCoursesChildType(fTypeId);
+		request.getServletContext().setAttribute("cCourseTypes",cCourseTypes);
+		Page<Course> page = this.courseListServiceImpl.listParentCoursesPage(pageNum, 12, fCourseType);
 		Map<Object,Integer> Coursespage= new LinkedHashMap<Object,Integer>();
 		for(Course c:page.getList()) {
 			Coursespage.put(c,c.getJoinUsers().size());
@@ -99,7 +102,7 @@ public class CourseListController {
 	public String courseListT(HttpServletRequest request,@RequestParam(value="pageNum",defaultValue="1") int pageNum,@RequestParam("cTypeId") int cTypeId){
 		//按子类型分页查询课程
 		CourseType cCourseType = this.courseListServiceImpl.getPareType(cTypeId);
-		Page<Course> page = this.courseListServiceImpl.listChildCoursesPage(pageNum, 15, cCourseType);
+		Page<Course> page = this.courseListServiceImpl.listChildCoursesPage(pageNum, 12, cCourseType);
 		Map<Object,Integer> Coursespage= new LinkedHashMap<Object,Integer>();
 		for(Course c:page.getList()) {
 			Coursespage.put(c,c.getJoinUsers().size());
@@ -109,6 +112,7 @@ public class CourseListController {
 		request.setAttribute("mTag","全部");
 		request.setAttribute("cTypeId",cTypeId);
 		request.setAttribute("tag","ctc");
+		request.setAttribute("fTypeId",cCourseType.getCourseType().getTypeId());
 		return "courselist";
 	}
 	

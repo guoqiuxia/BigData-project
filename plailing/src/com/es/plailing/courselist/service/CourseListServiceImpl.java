@@ -108,6 +108,17 @@ public class CourseListServiceImpl implements CourseListService{
 		}
 	}
 
+	@Override
+	public List<CourseType> listCoursesChildType(int fId) {
+		// TODO Auto-generated method stub
+		try {
+			return this.courseListDaoImpl.listCourseChildType(fId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
 
 
 }
