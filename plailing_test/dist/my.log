@@ -1,0 +1,14 @@
+[ERROR] 2018-12-24 15:57:22,739 com.webtest.utils.Log - test.AddComment_test@6a41eaa2-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-24 15:59:11,828 com.webtest.utils.Log - test.ChangePersonalMessage_test@6093dd95-personalMessage运行失败，需要截屏
+[ERROR] 2018-12-24 16:33:33,057 com.webtest.utils.Log - test.AddComment_test@6a41eaa2-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-24 16:38:05,080 com.webtest.utils.Log - test.AddComment_test@6a41eaa2-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-24 16:40:41,659 com.webtest.utils.Log - test.AddComment_test@6a41eaa2-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-24 16:46:35,625 com.webtest.utils.Log - test.AddComment_test@6a41eaa2-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-24 16:49:01,417 com.webtest.utils.Log - test.ApplyPlace_test@6d4b1c02-applyplace运行失败，需要截屏
+[ERROR] 2018-12-24 16:49:52,481 com.webtest.utils.Log - test.ChangePersonalMessage_test@6093dd95-personalMessage运行失败，需要截屏
+[ERROR] 2018-12-24 17:12:04,316 com.webtest.utils.Log - test.ChangePersonalMessage_test@87f383f-personalMessage运行失败，需要截屏
+[ERROR] 2018-12-24 18:01:11,445 com.webtest.utils.Log - test.ChangePersonalMessage_test@612fc6eb-personalMessage运行失败，需要截屏
+[ERROR] 2018-12-29 18:54:14,064 com.webtest.utils.Log - test.AddComment_test@4883b407-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-29 18:54:14,090 com.webtest.utils.Log - test.AddComment_test@4883b407-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-29 18:57:56,832 com.webtest.utils.Log - test.AddComment_test@462d5aee-addcourse_coment运行失败，需要截屏
+[ERROR] 2018-12-29 18:57:56,868 com.webtest.utils.Log - test.AddComment_test@462d5aee-addcourse_coment运行失败，需要截屏

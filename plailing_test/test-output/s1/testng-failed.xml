@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [s1]">
+  <listeners>
+    <listener class-name="com.webtest.core.WebTestListener"/>
+  </listeners>
+  <test thread-count="5" name="wangdonghui(failed)">
+    <classes>
+      <class name="test.AddComment_test">
+        <methods>
+          <include name="doBeforeSuite"/>
+          <include name="doAfterMethod"/>
+          <include name="addcourse_coment"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- test.AddComment_test -->
+      <class name="test.ApplyPlace_test">
+        <methods>
+          <include name="doBeforeSuite"/>
+          <include name="applyplace" invocation-numbers="4"/>
+          <include name="login"/>
+          <include name="doAfterMethod"/>
+        </methods>
+      </class> <!-- test.ApplyPlace_test -->
+      <class name="test.Login_test">
+        <methods>
+          <include name="doBeforeSuite"/>
+          <include name="doAfterMethod"/>
+          <include name="login" invocation-numbers="2"/>
+        </methods>
+      </class> <!-- test.Login_test -->
+    </classes>
+  </test> <!-- wangdonghui(failed) -->
+</suite> <!-- Failed suite [s1] -->
