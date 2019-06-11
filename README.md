@@ -34,8 +34,28 @@ e享课堂是一款针对在校大学生的学习平台，给每个人提供“�
 
 ### 项目截图
 
+-首页
 <p>
 <img src="./image/登录页面.png"/>
 <img src="./image/注册页面.png"/>
 <img src="./image/推荐模块.png"/>
+</p>
+
+-课程页
+<p>
+<img src="./image/全部课程页.png"/>
+<img src="./image/课程评论页.png"/>
+<img src="./image/课程详情页.png"/>
+</p>
+
+-需求热搜
+<p>
+<img src="./image/需求热搜页.png"/>
+</p>
+
+-个人中心页
+<p>
+<img src="./image/个人信息展示页.png"/>
+<img src="./image/零钱明细页.png"/>
+<img src="./image/视频上传页面.png"/>
 </p>
