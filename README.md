@@ -18,24 +18,24 @@ e享课堂是一款针对在校大学生的学习平台，给每个人提供“�
   - Github：[https://github.com/guoqiuxia](https://github.com/guoqiuxia)
 - 梁芳芳（市场总监、UI设计师、开发工程师、测试工程师）
   - Email：[m15227119655@163.com](mailto:m15227119655@163.com)
-  - Github：[https://github.com/jiachengyan](https://github.com/jiachengyan)
+  - Github：[https://github.com/Liangfangfang97](https://github.com/Liangfangfang97)
 - 刘珊珊（技术总监、UI设计师、开发工程师、测试工程师）
-  - Email：[1551073921@qq.com](mailto:1551073921@qq.com)
-  - Github：[https://github.com/nieliangpeng](https://github.com/nieliangpeng)
+  - Email：[3449165425@qq.com](mailto:3449165425@qq.com)
+  - Github：[https://github.com/liushanshan980908](https://github.com/liushanshan980908)
 - 辛佳锟（技术总监、UI设计师、开发工程师、测试工程师）
-  - Email：[2908673445@qq.com](mailto:2908673445@qq.com)
-  - Github：[https://github.com/WangMing6ban](https://github.com/WangMing6ban)
+  - Email：[1913829181@qq.com](mailto:1913829181@qq.com)
+  - Github：[https://github.com/xinjiakun](https://github.com/xinjiakun)
 - 张思嘉（产品经理、UI设计师、开发工程师、测试工程师）
-  - Email：[2396515252@qq.com](mailto:2396515252@qq.com)
-  - Github：[https://github.com/ZhuoZm](https://github.com/ZhuoZm)
+  - Email：[m13932208353@163.com](mailto:2396515252@qq.com)
+  - Github：[https://github.com/ZSJ-9](https://github.com/ZSJ-9)
 - 梁雅茹（质量专家、UI设计师、开发工程师、测试工程师）
-  - Email：[14703313561@163.com](mailto:14703313561@163.com)
-  - Github：[https://github.com/yangxiaoyu98](https://github.com/yangxiaoyu98)
+  - Email：[m15226538922@163.com](mailto:m15226538922@163.com)
+  - Github：[https://github.com/liangyaru](https://github.com/liangyaru)
 
 ### 项目截图
 
 <p>
-<img src="./image/logo-欢迎页.png" width=250 height=400 />
-<img src="./image/首页.jpg" width=250 height=400 />
-<img src="./image/ta的帖子.png" width=250 height=400 />
+<img src="./image/登录页面.png" width=250 height=400 />
+<img src="./image/注册页面.png" width=250 height=400 />
+<img src="./image/推荐模块.png" width=250 height=400 />
 </p>
