@@ -35,7 +35,7 @@ e享课堂是一款针对在校大学生的学习平台，给每个人提供“�
 ### 项目截图
 
 <p>
-<img src="./image/登录页面.png" width=250 height=400 />
-<img src="./image/注册页面.png" width=250 height=400 />
-<img src="./image/推荐模块.png" width=250 height=400 />
+<img src="./image/登录页面.png"/>
+<img src="./image/注册页面.png"/>
+<img src="./image/推荐模块.png"/>
 </p>
