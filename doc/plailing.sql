@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2019-01-01 21:19:17
+Date: 2019-06-13 09:47:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -159,10 +159,10 @@ CREATE TABLE `tbl_course` (
 -- ----------------------------
 INSERT INTO `tbl_course` VALUES ('1', 'javaEE实战入门', 'img/check/course82.jpg', '199', '本课程基于任务驱动的场景教学⽅法,传授主流的互联⽹开发技术及Spring Boot、Hibernate等框架技术,分阶段循序渐进的逐步引导学员了解和掌握企业级的JavaEE项目开发知识。', '1', '0.00', '30', '0000000000', '1', '1');
 INSERT INTO `tbl_course` VALUES ('2', 'C/C++入门到精通', 'img/check/course172.jpg', '0', '本课程需要有基本的c语言基础，目标是希望通过学习，让我们对c++语言有一个比较全面的掌握。', '1', '0.00', '30', '0000000000', '1', '2');
-INSERT INTO `tbl_course` VALUES ('3', 'H5基础课程', 'img/check/course152.jpg', '30', '从零基础起步开始HTML的学习，本套课程全部用最为通俗的语言对所有的专业术语进行讲解分析。', '2', '0.00', '30', '0000000003', '1', '3');
+INSERT INTO `tbl_course` VALUES ('3', 'H5基础课程', 'img/check/course152.jpg', '30', '从零基础起步开始HTML的学习，本套课程全部用最为通俗的语言对所有的专业术语进行讲解分析。', '2', '4.00', '30', '0000000005', '1', '3');
 INSERT INTO `tbl_course` VALUES ('4', 'jQuery视频教程', 'img/check/course142.jpg', '99', 'jQuery是一个快速、简洁的JavaScript框架。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。 ', '2', '0.00', '30', '0000000000', '1', '4');
 INSERT INTO `tbl_course` VALUES ('5', 'PS简易教程', 'img/check/8d0bafa6b29aa4a0cd2.jpg', '35', '本课程主讲产品精修、海报设计、主图/详情页设计、店铺装修，为美工新手、美工就业/从业人员首选，适合PS基础薄弱、缺乏设计思路、色彩搭配的学员。', '2', '0.00', '13', '0000000000', '1', '5');
-INSERT INTO `tbl_course` VALUES ('6', '折纸手工教学', 'img/check/折纸2.jpg', '10', '即使是折纸的新手也可以轻松的跟随折纸视频的讲解完成相关手工折纸的创作，可以让我们轻松完成多种样式的有趣折纸制作。', '3', '3.50', '60', '0000000006', '1', '7');
+INSERT INTO `tbl_course` VALUES ('6', '折纸手工教学', 'img/check/折纸2.jpg', '10', '即使是折纸的新手也可以轻松的跟随折纸视频的讲解完成相关手工折纸的创作，可以让我们轻松完成多种样式的有趣折纸制作。', '3', '4.33', '60', '0000000006', '1', '7');
 INSERT INTO `tbl_course` VALUES ('7', '毛笔字教学', 'img/check/d59212776f5c0a58772.jpg', '60', '书法是中国传统文化艺术发展五千年来最具有经典标志的民族符号。它是用毛笔书写汉字并具有审美惯性的艺术形式。此课程主要包括偏旁部首的基本要领、基本字的写法等的学习。', '4', '0.00', '63', '0000000000', '1', '6');
 INSERT INTO `tbl_course` VALUES ('8', '古筝考级教学', 'img/check/slider42.jpg', '20', '本套教材虽然不是音乐艺术院校的教学大纲，但结合古筝这件乐器自身的特点，本着传统民间乐曲与现代创编作品并重的理念，每一级里都较为充分地体现了对这两方面的考量，亦使考级方式更为灵活、更易操作。', '4', '0.00', '24', '0000000000', '1', '8');
 INSERT INTO `tbl_course` VALUES ('9', '计算机组成原理', 'img/check/356 (1)2.jpg', '10', '结合老师上课讲的内容加上自己自己的理解，对本课程做了通俗易懂的讲解，适合基础薄弱的同学进行学习。', '3', '0.00', '29', '0000000000', '1', '9');
@@ -196,7 +196,7 @@ CREATE TABLE `tbl_coursecatalog` (
   `courseId` int(11) DEFAULT NULL,
   `courseFile` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`catalogId`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_coursecatalog
@@ -223,6 +223,38 @@ INSERT INTO `tbl_coursecatalog` VALUES ('19', '毛笔字的初级教学', null, 
 INSERT INTO `tbl_coursecatalog` VALUES ('20', ' 毛笔字的初级教学', '19', '7', 'videoes\\weixinjsqz11.mp4');
 INSERT INTO `tbl_coursecatalog` VALUES ('21', 'javaEE实战入门', null, '1', null);
 INSERT INTO `tbl_coursecatalog` VALUES ('22', 'javaEE实战入门', '21', '1', 'videoes\\weixinjsqz11.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('23', 'C/C++入门到精通', null, '2', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('24', 'C++入门到精通', '23', '2', 'videoes\\C++入门到精通.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('25', '果酒制作', null, '11', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('26', '果酒制作', '25', '11', 'videoes\\果酒制作.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('27', '形象设计', null, '12', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('28', '形象设计', '27', '12', 'videoes\\形象设计.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('29', '时间管理', null, '13', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('30', '时间管理', '29', '13', 'videoes\\时间管理.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('31', 'jQuery', null, '4', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('32', 'jQuery', '31', '4', 'videoes\\jQuery.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('33', 'PS简易教程', null, '5', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('34', 'PS简易教程', '33', '5', 'videoes\\PS简易教程.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('35', '基础教程', null, '9', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('36', '计算机组成原理', '35', '9', 'videoes\\计算机组成原理.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('37', '基础教程', null, '10', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('38', '数据结构', '37', '10', 'videoes\\数据结构.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('39', '基础教程', null, '8', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('40', '古筝考级基础课程', '39', '8', 'videoes\\古筝考级基础课程.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('41', '基础教程', null, '15', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('42', '手机摄影', '41', '15', 'videoes\\手机摄影.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('43', '基础教程', null, '17', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('44', '数字图形创意设计', '43', '17', 'videoes\\数字图形创意设计.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('45', '基础教程', null, '19', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('46', '吉他教学', '45', '19', 'videoes\\吉他教学.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('47', '基础教程', null, '21', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('48', '办公室瑜伽', '47', '21', 'videoes\\办公室瑜伽.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('49', '基础教程', null, '23', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('50', '学习韩语', '49', '23', 'videoes\\学习韩语.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('51', '基础教程', null, '25', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('52', 'Word', '51', '25', 'videoes\\Word.mp4');
+INSERT INTO `tbl_coursecatalog` VALUES ('53', '基础教程', null, '26', null);
+INSERT INTO `tbl_coursecatalog` VALUES ('54', 'web安全', '53', '26', 'videoes\\web安全.mp4');
 
 -- ----------------------------
 -- Table structure for `tbl_coursecomment`
@@ -410,7 +442,7 @@ CREATE TABLE `tbl_grade` (
   `courseId` int(11) DEFAULT NULL,
   `grade` double DEFAULT NULL,
   PRIMARY KEY (`gradeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_grade
@@ -420,6 +452,9 @@ INSERT INTO `tbl_grade` VALUES ('2', '2', '6', '4');
 INSERT INTO `tbl_grade` VALUES ('3', '4', '6', '5');
 INSERT INTO `tbl_grade` VALUES ('4', '5', '6', '5');
 INSERT INTO `tbl_grade` VALUES ('5', '6', '6', '4');
+INSERT INTO `tbl_grade` VALUES ('6', '3', '6', '5');
+INSERT INTO `tbl_grade` VALUES ('7', '3', '3', '4');
+INSERT INTO `tbl_grade` VALUES ('8', '6', '3', '4');
 
 -- ----------------------------
 -- Table structure for `tbl_inform`
@@ -477,7 +512,7 @@ CREATE TABLE `tbl_money` (
   `courseId` int(11) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
   PRIMARY KEY (`moneyId`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_money
@@ -493,6 +528,8 @@ INSERT INTO `tbl_money` VALUES ('8', '99', '2018-12-30 17:28:26', '14', '5');
 INSERT INTO `tbl_money` VALUES ('9', '30', '2018-12-30 17:29:02', '3', '2');
 INSERT INTO `tbl_money` VALUES ('10', '30', '2018-12-30 20:34:20', '3', '2');
 INSERT INTO `tbl_money` VALUES ('11', '30', '2018-12-30 20:38:31', '3', '2');
+INSERT INTO `tbl_money` VALUES ('12', '30', '2019-05-29 10:22:06', '3', '2');
+INSERT INTO `tbl_money` VALUES ('13', '30', '2019-06-03 16:50:10', '3', '2');
 
 -- ----------------------------
 -- Table structure for `tbl_user`
@@ -510,26 +547,27 @@ CREATE TABLE `tbl_user` (
   `nickName` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `birthday` char(10) DEFAULT NULL,
   `identityNumber` char(18) DEFAULT NULL,
-  `balance` double DEFAULT NULL,
   `tag` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
+  `balance` double DEFAULT NULL,
   `school` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `major` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `introduction` varchar(1024) CHARACTER SET utf8 DEFAULT NULL,
+  `vip` int(11) DEFAULT NULL,
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_user
 -- ----------------------------
-INSERT INTO `tbl_user` VALUES ('1', '1209980074@qq.com', '0', '江苏', '南京市', '15222228888', '1234qwerasdf', 'img/Linux&c.png', '小e1', '1996-12-04', '130283199612042255', '990', null, '河北师范大学', '数信专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('2', '3449165425@qq.com', '1', '广东', '江门市', '15227119999', '123456asd', 'img/Linux&c.png', '小e2', '1995-11-02', '450101199511028866', '360', null, '河北师范大学', '美术与设计专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('3', '1186373310@qq.com', '1', '河北', '石家庄', '15577449999', '123456', 'img/Linux&c.png', '小e3', '1996-02-02', '450103199602025533', '190', null, '河北师范大学', '材料与工程学专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('4', 'm13932208353@163.com', '0', '吉林', '长春市', '13932208353', '123456', 'img/Linux&c.png', '小e4', '1996-01-01', '102030199601014455', '9970', null, '河北师范大学', '外国语专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('5', 'm15227119655@163.com', '1', '广西', '贵港市', '15227119655', 'lffang1125', 'img/Linux&c.png', '小e5', '1996-04-05', '450803199611255646', '171', null, '河北师范大学', '软件工程', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('6', '15225426358@163.com', '1', '河北', '沧州', '15225426358', '124578963', 'img/Linux&c.png', '小e6', '1998-11-01', '130282199811017878', '990', null, '河北师范大学', '生命科学专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('7', '15236451235@163.com', '1', '河北', '石家庄', '15236451235', '123456987', 'img/Linux&c.png', '小e7', '1999-12-20', '130282199912201242', '490', null, '河北师范大学', '职技专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('8', '15236455245@163.com', '0', '河北', '石家庄', '15236455245', '1234256', 'img/Linux&c.png', '小e8', '1997-12-04', '130283199712042255', '490', null, '河北师范大学', '数信专业', '我是一名大学生');
-INSERT INTO `tbl_user` VALUES ('9', '15236455426@163.com', '0', '河北', '石家庄', '15236455426', '12452356', 'img/Linux&c.png', '小e9', '1998-11-04', '130283199811042255', '500', null, '河北师范大学', '美术与设计专业', '我是一名大学生');
+INSERT INTO `tbl_user` VALUES ('1', '1209980074@qq.com', '0', '江苏', '南京市', '15222228888', '123456', 'img/Linux&c.png', '小e1', '1996-12-04', '130283199612042255', null, '990', '河北师范大学', '数信专业', '我是一名大学生', '1');
+INSERT INTO `tbl_user` VALUES ('2', '3449165425@qq.com', '1', '广东', '江门市', '15227119999', '123456asd', 'img/Linux&c.png', '小e2', '1995-11-02', '450101199511028866', null, '360', '河北师范大学', '美术与设计专业', '我是一名大学生', '1');
+INSERT INTO `tbl_user` VALUES ('3', '1186373310@qq.com', '1', '河北', '石家庄', '15577449999', '123456', 'img/Linux&c.png', '小e3', '1996-02-02', '450103199602025533', null, '160', '河北师范大学', '材料与工程学专业', '我是一名大学生', '0');
+INSERT INTO `tbl_user` VALUES ('4', 'm13932208353@163.com', '0', '吉林', '长春市', '13932208353', '123456', 'img/Linux&c.png', '小e4', '1996-01-01', '102030199601014455', null, '9970', '河北师范大学', '外国语专业', '我是一名大学生', '1');
+INSERT INTO `tbl_user` VALUES ('5', 'm15227119655@163.com', '1', '广西', '贵港市', '15227119655', 'lffang1125', 'img/Linux&c.png', '小e5', '1996-04-05', '450803199611255646', null, '171', '河北师范大学', '软件工程', '我是一名大学生', '0');
+INSERT INTO `tbl_user` VALUES ('6', '15225426358@163.com', '1', '河北', '沧州', '15225426358', '123456', 'img/Linux&c.png', '小e6', '1998-11-01', '130282199811017878', null, '960', '河北师范大学', '生命科学专业', '我是一名大学生', '0');
+INSERT INTO `tbl_user` VALUES ('7', '15236451235@163.com', '1', '河北', '石家庄', '15236451235', '123456987', 'img/Linux&c.png', '小e7', '1999-12-20', '130282199912201242', null, '490', '河北师范大学', '职技专业', '我是一名大学生', '1');
+INSERT INTO `tbl_user` VALUES ('8', '15236455245@163.com', '0', '河北', '石家庄', '15236455245', '1234256', 'img/Linux&c.png', '小e8', '1997-12-04', '130283199712042255', null, '490', '河北师范大学', '数信专业', '我是一名大学生', '0');
+INSERT INTO `tbl_user` VALUES ('9', '15236455426@163.com', '0', '河北', '石家庄', '15236455426', '12452356', 'img/Linux&c.png', '小e9', '1998-11-04', '130283199811042255', null, '500', '河北师范大学', '美术与设计专业', '我是一名大学生', '0');
 
 -- ----------------------------
 -- Table structure for `tbl_userbalance`
@@ -544,7 +582,7 @@ CREATE TABLE `tbl_userbalance` (
   `balanceState` int(11) DEFAULT NULL,
   `courseId` int(11) DEFAULT NULL,
   PRIMARY KEY (`userBalanceId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_userbalance
@@ -561,6 +599,8 @@ INSERT INTO `tbl_userbalance` VALUES ('9', '2018-12-30 17:29:02', '30', '171', '
 INSERT INTO `tbl_userbalance` VALUES ('10', '2018-12-30 20:34:20', '10000', '10000', '4', '0', null);
 INSERT INTO `tbl_userbalance` VALUES ('11', '2018-12-30 20:38:31', '30', '9970', '4', '1', '3');
 INSERT INTO `tbl_userbalance` VALUES ('12', '2018-12-28 21:37:30', '1000', '1000', '6', '0', null);
+INSERT INTO `tbl_userbalance` VALUES ('13', '2019-05-29 10:22:05', '30', '160', '3', '1', '3');
+INSERT INTO `tbl_userbalance` VALUES ('14', '2019-06-03 16:50:09', '30', '960', '6', '1', '3');
 
 -- ----------------------------
 -- Table structure for `tbl_usercollectioncourse`
@@ -620,7 +660,7 @@ CREATE TABLE `tbl_userjoincourse` (
   `courseId` int(11) DEFAULT NULL,
   `joinTime` date DEFAULT NULL,
   PRIMARY KEY (`joincourseId`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_userjoincourse
@@ -637,3 +677,5 @@ INSERT INTO `tbl_userjoincourse` VALUES ('10', '5', '6', '2018-12-29');
 INSERT INTO `tbl_userjoincourse` VALUES ('11', '5', '14', '2018-12-30');
 INSERT INTO `tbl_userjoincourse` VALUES ('12', '5', '3', '2018-12-30');
 INSERT INTO `tbl_userjoincourse` VALUES ('14', '4', '3', '2018-12-30');
+INSERT INTO `tbl_userjoincourse` VALUES ('15', '3', '3', '2019-05-29');
+INSERT INTO `tbl_userjoincourse` VALUES ('16', '6', '3', '2019-06-03');
