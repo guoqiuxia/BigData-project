@@ -48,8 +48,6 @@ public class CourseListController {
 		request.setAttribute("mTag","推荐");
 		//分页查询课程
 		int total = this.courseListServiceImpl.listAllCourses().size();
-		System.out.print(total);
-		System.out.print("helloworld");
 		Page<Course> page = courseListServiceImpl.listAllCoursesPage(pageNum, 12,total);
 		Map<Object,Integer> Coursespage= new LinkedHashMap<Object,Integer>();
 		for(Course c:page.getList()) {

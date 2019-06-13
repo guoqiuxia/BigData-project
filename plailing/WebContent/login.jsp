@@ -36,7 +36,6 @@
 			type:'post',
 			asyn:false,
 			success:function(result){
-				console.log(134);
 				if(result=="1"){
 					window.location.href='register?email='+email+'&password='+password+'&captcha_v='+captcha_v;
 					

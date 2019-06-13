@@ -56,7 +56,7 @@ public class Upload1Controller {
 			HttpServletRequest request,
 			Model model) {
 		if(!file.isEmpty()&&StringUtils.isNotBlank(catalog)) {
-			String path = "D:\\threeyear\\plailing\\WebContent\\videoes\\";
+			String path = "D:\\p\\plailing1.1\\WebContent\\videoes\\";
 			System.out.println(path);
 			String filename = StringUtils.substringBeforeLast(file.getOriginalFilename(),".");
 			if(filename.length()>18) {

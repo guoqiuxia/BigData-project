@@ -53,6 +53,9 @@
 				<h1>
 					<a href="${ctx }/demandinform">需求更新</a>
 				</h1>
+				<h1>
+					<a href="${ctx }/ifVip">当前等级</a>
+				</h1>
 			</div>
 			<div class="display">				
 				<c:forEach var="informAll" items="${listInformAll}">

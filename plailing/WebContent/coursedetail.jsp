@@ -134,12 +134,32 @@ function study(courseId,catalogId){
 		}
 	})
 }
+
+var logoin;
+var logoout;
+function logoIn(){
+	logoin = new Date();
+}
+
+function logoOut(id){
+	logoout = new Date();
+	var scanTime = Math.round((logoout.getTime()-logoin.getTime())/1000);
+	$.ajax({
+		url:'${ctx}/scLog',
+		data:{
+			'scanTime':scanTime,
+			'id':id
+		},
+		type:'post',
+		asyn:false,
+	})
+}
 </script>
 
 
 
 </head>
-<body>
+<body onload="logoIn()" onunload="logoOut(${courseId })">
 
 	<%@include file="header.jsp"%>
 

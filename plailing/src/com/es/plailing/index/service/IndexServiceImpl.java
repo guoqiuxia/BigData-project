@@ -1,6 +1,8 @@
 package com.es.plailing.index.service;
 
 import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +47,41 @@ public class IndexServiceImpl implements IndexService{
 		}
 	}
 
+	@Override
+	public Map<Integer, Double> recommend(int userId) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.recommend(userId);
+	}
 
+	@Override
+	public List recommendCourses(int courseId, int userId) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.recommendCourses(courseId,userId);
+	}
+
+	@Override
+	public boolean writeMap(int uid, Map<Integer, Double> map) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.writeMap(uid, map);
+	}
+
+	@Override
+	public Map<Integer, Double> changeGrade(int userID, int courseID, Map<Integer, Double> map) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.changeGrade(userID, courseID, map);
+	}
+
+	@Override
+	public Map<Object, Integer> transferMap(Map<Integer, Double> map) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.transferMap(map);
+	}
+
+	@Override
+	public int getCount(int userID, int courseID) {
+		// TODO Auto-generated method stub
+		return this.indexDaoImpl.getCount(userID, courseID);
+	}
+	
+	
 }

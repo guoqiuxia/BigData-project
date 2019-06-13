@@ -99,7 +99,7 @@ public class CourseDaoImpl extends BaseDao<Course,Integer>{
 	public List<Course> listCourse(int courseId) throws Exception{
 		int typeId =get(courseId).getCourseType().getTypeId();
 		Session session=sessionFactory.getCurrentSession();
-		Query q=session.createQuery("from Course c where c.courseType.typeId=? and c.courseId !=?");
+		Query q=session.createQuery("from Course c where c.courseType.typeId=? and c.courseId !=? and size(c.courseCatalogs)>0");
 		q.setParameter(0, typeId);
 		q.setParameter(1, courseId);
 		q.setFirstResult(0);

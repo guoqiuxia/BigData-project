@@ -30,7 +30,47 @@
 <link rel="stylesheet" href="${ctx }/app/css/dest/styles.css">
 
 <link rel="stylesheet" href="${ctx }/css/jquery.slider.css">
-
+<style type="text/css">
+#active{
+	color: #03a57c;
+	text-decoration: none;
+}
+</style>
+<script type="text/javascript">
+	function myLike(courseId){
+		$.ajax({
+			url:'${ctx}/myLikeLog',
+			data:{
+				'courseId':courseId
+			},
+			type:'get',
+			asyn:false,
+			success:function(result){
+				if(result=="ok"){
+					alert("系统已记录下您喜欢的课程，感谢反馈！");
+				}
+			}
+		})
+	}
+	
+	function myUnLike(courseId){
+		$.ajax({
+			url:'${ctx}/myUnLikeLog',
+			data:{
+				'courseId':courseId
+			},
+			type:'get',
+			asyn:false,
+			success:function(result){
+				if(result=="ok"){
+					alert("系统已记录下您不喜欢的课程，感谢反馈！");
+					var unlikeId = 1;
+					window.location.href='index?unlikeId='+unlikeId+'&courseId='+courseId;
+				}
+			}
+		})
+	}
+</script>
 </head>
 
 <body>
@@ -49,7 +89,7 @@
 			<div class="clearfix courses">
 				<c:forEach items="${recomendCourses}" var="rc">
 					<div class="col-md-3 col-sm-6  course">
-						<a class="course-box" href="${ctx }/courseDetail?courseId=${rc.key.courseId}">
+						<a class="course-box" href="${ctx}/courseDetail?courseId=${rc.key.courseId}">
 							<div class="sign-box">
 								<i class="fa fa-star-o course-follow pull-right"
 									data-follow-url="/courses/30/follow"
@@ -66,10 +106,15 @@
 							</div>
 							<div class="course-footer">
 								<span class="course-per-num pull-left"> <i
-									class="fa fa-users"></i>${rc.value}
+									class="fa fa-users"></i>${rc.value} 
 								</span>
 							</div>
 						</a>
+						<br>
+						<c:if test="${loginFlag=='1'}">
+							<a id="active" href="#" style="margin-left:120px;" onclick="myUnLike(${rc.key.courseId})">不喜欢♡</a>
+							<a id="active" href="#" style="margin-left:20px;" onclick="myLike(${rc.key.courseId})">喜欢❤</a>
+						</c:if>
 					</div>
 				</c:forEach>
 			</div>

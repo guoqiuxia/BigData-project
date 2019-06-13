@@ -31,6 +31,7 @@ public class User {
 	private String school;
 	private String major;
 	private String tag;
+	private int vip;
 	private Set<Money> moneys = new HashSet<Money>();
 	// 锟斤拷锟�
 	private Set<UserBalance> userBalances = new HashSet<UserBalance>();
@@ -290,6 +291,14 @@ public class User {
 
 	public void setDemands(Set<UserDemand> demands) {
 		this.demands = demands;
+	}
+
+	public int getVip() {
+		return vip;
+	}
+
+	public void setVip(int vip) {
+		this.vip = vip;
 	}
 	
 

@@ -28,6 +28,8 @@ import com.es.plailing.entity.Grade;
 import com.es.plailing.entity.Page;
 import com.es.plailing.entity.User;
 import com.es.plailing.information.service.InformationServiceImpl;
+import com.es.plailing.left.service.LeftServiceImpl;
+import com.es.plailing.log.dao.LogDaoImpl;
 import com.es.plailing.upload.service.UploadServiceImpl;
 
 @Controller
@@ -41,6 +43,8 @@ public class CourseCommentController {
 	private UploadServiceImpl uploadServiceImpl;
 	@Resource
 	private InformationServiceImpl informationServiceImpl;
+	@Resource
+	private LeftServiceImpl leftServiceImpl;
 
 	@RequestMapping("/coursecomment")
 	public String getCourseComment(HttpServletRequest request, @RequestParam("courseId") int courseId,
@@ -158,7 +162,6 @@ public class CourseCommentController {
 					data.add(a1);
 				}
 			}
-			System.out.println(data);
 			response.setCharacterEncoding("utf-8");
 			response.getWriter().print(JSON.toJSONString(data));
 		} else {
@@ -207,24 +210,21 @@ public class CourseCommentController {
 		for (CourseComment c : comments) {
 			Object[] aObjects = { c.getCourseCommentId(), (Date) c.getCommentTime(), c.getText(),
 					c.getCourseComment().getUser().getNickName(), c.getUser().getNickName() };
-			System.out.println((Date) c.getCommentTime());
 			name.add(aObjects);
 		}
 		response.setCharacterEncoding("UTF-8");
 		// comment=commentServiceImpl.FindOne(objects);
-		System.out.println("comment2:" + comments);
 		PrintWriter out = null;
 		// SimplePropertyPreFilter filter=new
 		// SimplePropertyPreFilter(Comment.class,"commentId","text","user");
 		try {
 			out = response.getWriter();
-			System.out.println(JSON.toJSONString(name));
 			out.print(JSON.toJSONString(name));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@RequestMapping("/makeScore")
 	@ResponseBody
 	public double makeScore(HttpServletRequest request, @RequestParam("courseId") int courseId,
@@ -242,7 +242,16 @@ public class CourseCommentController {
 		}
 		double avgGrade = sumGrade / courseGrades.size();
 		this.courseCommentServiceImpl.updateGrade(avgGrade, courseId);
-		System.out.print("hahahha");
+		
+		//通过用户email得到用户id
+		User u = leftServiceImpl.findLeft(email);
+		int userId = u.getUserId();
+		//获取当前系统时间
+		Date date = new Date();
+		long time = date.getTime();
+		//将用户评分存到日志中
+		LogDaoImpl log = new LogDaoImpl();
+		log.getScoreLog(userId,courseId,grade,time);
 		return result;
 	}
 }

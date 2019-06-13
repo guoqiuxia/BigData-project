@@ -98,6 +98,9 @@ public class CourseDetailController {
 		request.getServletContext().setAttribute("uploaduser", cu);
 		request.getServletContext().setAttribute("courseId", courseId);
 		request.getServletContext().setAttribute("count", (pageNum-1)*3); 
+		
+		
+		
 		return "coursedetail";
 	}
 	

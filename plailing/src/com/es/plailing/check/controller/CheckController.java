@@ -100,8 +100,8 @@ public class CheckController {
 				filename3=filename3+count+image.getOriginalFilename().substring(image.getOriginalFilename().length()-4, image.getOriginalFilename().length());
 				
 				// 设置存储路径
-				String imgpath = "D:\\p\\plailing\\WebContent\\img\\check\\";
-				String vidopath = "D:\\p\\plailing\\WebContent\\videoes\\check\\";
+				String imgpath = "D:\\p\\plailing1.1\\WebContent\\img\\check\\";
+				String vidopath = "D:\\p\\plailing1.1\\WebContent\\videoes\\check\\";
 				
 				String fileTyle=filename2.substring(filename2.lastIndexOf("."),filename2.length());
 				if(fileTyle.equals(".mp4") || fileTyle.equals(".flv")) {

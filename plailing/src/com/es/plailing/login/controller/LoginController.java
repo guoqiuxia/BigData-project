@@ -367,10 +367,10 @@ public class LoginController {
 			HttpSession session=request.getSession();
 			session.setAttribute("email", null);
 			request.getServletContext().setAttribute("loginFlag", 0);
-			return "index";
+			return "redirect:/index";
 		}else {
 			request.getServletContext().setAttribute("loginFlag", 0);
-			return "index";
+			return "redirect:/index";
 		}		
 	}
 }
